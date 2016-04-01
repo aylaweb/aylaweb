@@ -1,0 +1,203 @@
+<head>
+    <title></title>
+
+    <style>
+        body {
+            display: flex;
+            // align-items: stretch;
+            margin: 0;
+            height: 100vh;
+            font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+    </style> 
+</head>
+<body>
+</body>
+<template name='Home'>
+    <script src="http://www.vipsion.com:3000/bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="http://www.vipsion.com:3000/bower_components/vip-loader/vip-loader.html"> 
+    <vip-loader url="http://www.vipsion.com:3000/videodemo/videodemo.json"></vip-loader>
+</template>
+<template name='Dev2'>
+    <script src="http://localhost/Vipsion/public/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="http://localhost/Vipsion/public/elements/vip-loader/vip-loader-dev.html"> 
+    <!-- <vip-loader url="http://localhost/Vipsion/public/ayla/ayla.json?forcedbyurl"></vip-loader> -->
+    <vip-loader url="http://localhost/Vipsion/public/apps/ayla/ayla_config.json" load-server></vip-loader> 
+</template>
+<template name='Dev'>
+    <script src="http://localhost/Vipsion/public/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="http://localhost/Vipsion/public/elements-js/ayla.html">
+    <link rel="import" href="http://localhost/Vipsion/public/bower_components/polymer/polymer.html">
+    <link rel="import" href="http://localhost/Vipsion/public/bower_components/vip-app/vip-app.html">
+    <link rel="import" href="http://localhost/Vipsion/public/bower_components/vip-loader/vip-loader.html">
+    <vip-app  theme = "http://localhost/Vipsion/public/apps/ayla/theme/aylatheme.html" id="ayla">
+        <vip-loader></vip-loader>
+    </vip-app>
+    <script>
+        window.addEventListener('HTMLImportsLoaded', function (e) {
+            var ayla = document.querySelector('#ayla');
+             ayla.dataSourceAjax = [{
+                    data: {appId: "ayla"},
+                    localCollection: "ElemRep",
+                    url: "http://localhost/Vipsion/public/apps/ayla/ayla_config.json"
+                }]; 
+         /*   ayla.dataSourceMeteor = [{
+                    selector: {appId: "myayla"},
+                    publication: "appElements"
+                }]; */
+            ayla.injections = [{
+                    collection: "ElemRep",
+                    selector: "this.appId == 'ayla'",
+                    prop: "appElems"}];
+           
+        /*    ayla.dataSourceJson = [{
+                    collection: "Videos",
+                    data: [{
+                            videoId: "butterfly",
+                            type: "video/mp4",
+                            sources: [
+                                {
+                                    src: "http://localhost/Vipsion/public/ayla/media/mov_bbb.mp4",
+                                    type: "video/mp4"
+                                }],
+                            startTime: 2,
+                            endTime: 8
+                        },
+                        {
+                            videoId: "joomla",
+                            type: "video/mp4",
+                            sources: [{
+                                    src: "http://localhost/Vipsion/public/ayla/media/joomla.mp4",
+                                    type: "video/mp4"
+                                }]
+                        },
+                        {
+                            videoId: "sintel",
+                            type: "video/mp4",
+                            sources: [{
+                                    src: "http://media.w3.org/2010/05/sintel/trailer.mp4",
+                                    type: "video/mp4"
+                                }]
+                        },
+                        {
+                            videoId: "yoda",
+                            type: "video/youtube",
+                            vid: "mJzbqdMrekU",
+                        },
+                        {
+                            videoId: "sintelyoutube",
+                            type: "video/youtube",
+                            vid: "LSHLg4hEVZ8",
+                        }
+                    ]
+                }]; */
+
+        });</script>
+</template>
+
+<template name='Server'>
+    <script src="http://localhost:3000/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link href="http://localhost:3000/elements-js/ayla.html"  rel="import">
+    <link href="http://localhost:3000/bower_components/polymer/polymer.html"  rel="import">
+    <link href="http://localhost:3000/elements/vip-app/vip-app.html"  rel="import">
+    <link href="http://localhost:3000/elements/vip-loader/vip-loader.html"  rel="import">
+    <vip-app  theme = "http://localhost:3000/apps/ayla/theme/aylatheme.html" id="ayla">
+        <vip-loader></vip-loader>
+    </vip-app>
+    <script>
+        window.addEventListener('HTMLImportsLoaded', function (e) {
+            var ayla = document.querySelector('#ayla');
+             ayla.dataSourceAjax = [{
+                    data: {appId: "ayla"},
+                    localCollection: "ElemRep",
+                    url: "http://localhost:3000/apps/ayla/ayla_config.json"
+                }]; 
+         /*   ayla.dataSourceMeteor = [{
+                    selector: {appId: "myayla"},
+                    publication: "appElements"
+                }]; */
+            ayla.injections = [{
+                    collection: "ElemRep",
+                    selector: "this.appId == 'ayla'",
+                    prop: "appElems"}];
+           
+        /*    ayla.dataSourceJson = [{
+                    collection: "Videos",
+                    data: [{
+                            videoId: "butterfly",
+                            type: "video/mp4",
+                            sources: [
+                                {
+                                    src: "http://localhost/Vipsion/public/ayla/media/mov_bbb.mp4",
+                                    type: "video/mp4"
+                                }],
+                            startTime: 2,
+                            endTime: 8
+                        },
+                        {
+                            videoId: "joomla",
+                            type: "video/mp4",
+                            sources: [{
+                                    src: "http://localhost/Vipsion/public/ayla/media/joomla.mp4",
+                                    type: "video/mp4"
+                                }]
+                        },
+                        {
+                            videoId: "sintel",
+                            type: "video/mp4",
+                            sources: [{
+                                    src: "http://media.w3.org/2010/05/sintel/trailer.mp4",
+                                    type: "video/mp4"
+                                }]
+                        },
+                        {
+                            videoId: "yoda",
+                            type: "video/youtube",
+                            vid: "mJzbqdMrekU",
+                        },
+                        {
+                            videoId: "sintelyoutube",
+                            type: "video/youtube",
+                            vid: "LSHLg4hEVZ8",
+                        }
+                    ]
+                }]; */
+
+        });</script>
+</template>
+
+<template name='Main'>
+    <script src="http://localhost/Vipsion/public/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="http://localhost/Vipsion/public/elements-js/ayla.html">
+    <link rel="import" href="http://localhost/Vipsion/public/bower_components/polymer/polymer.html">
+    <link rel="import" href="http://localhost/Vipsion/public/elements/vip-app/vip-app.html">
+    <vip-app  theme = "http://localhost/Vipsion/public/apps/ayla/theme/aylatheme.html" id="main"></vip-app>
+    <script>
+        window.addEventListener('HTMLImportsLoaded', function (e) {
+            var aylaMain = document.querySelector('#main');
+            aylaMain.dataSourceAjax = [{
+                    data: {appId: "main"},
+                    localCollection: "ElemRep",
+                    url: "http://localhost/Vipsion/public/apps/ayla/ayla_config.json"
+                }];
+            aylaMain.injections = [{
+                    collection: "ElemRep",
+                    selector: "this.appId == 'main'",
+                    prop: "appElems"}];
+        });
+    </script>
+</template>
+
+<template name='Local'>
+    <script src="http://www.vipsion.com:3000/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="http://www.vipsion.com:3000/bower_components/vip-loader/vip-loader.html"> 
+    <vip-loader url="http://www.vipsion.com:3000/videodemo/videodemoserver.json"></vip-loader>
+</template>
+<!--<template name='Local'>
+    <script src="http://localhost/Vipsion/public/bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="http://localhost/Vipsion/public/bower_components/vip-loader/vip-loader.html"> 
+    <vip-loader url="http://localhost/Vipsion/public/ayla/ayla.json" forcedbyurl></vip-loader>
+</template>-->
+<template name='Copyright'>
+    <vip-loader url="http://localhost/Vipsion/public/apps/ayla/ayla_config.json" forcedbyurl selected="copyright"></vip-loader>
+</template>

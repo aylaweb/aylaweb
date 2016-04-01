@@ -1,0 +1,265 @@
+{
+    "ayla": {
+        "etype": "vip-app",
+        "apps": [],
+        "themeURL": "http://localhost/Vipsion/public/ayla/theme/aylatheme.html"
+    },
+    "layout": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-layout/vip-layout.html",
+        "etype": "vip-layout",
+        "layout":
+            [
+                {
+                    "id": 1,
+                    "name": "top1",
+                    "children":
+                            [
+                                {
+                                    "id": 3,
+                                    "name": "mid1",
+                                    "children": []
+                                }, {
+                                    "id": 5,
+                                    "name": "mid3",
+                                    "children": []
+                                }
+                            ]
+                },
+                {
+                    "id": 2,
+                    "name": "top2",
+                    "children": [
+                        {
+                            "id": 4,
+                            "name": "mid2",
+                            "children": []
+                        }
+                    ]
+                }]
+    },
+    "coreheaderpanel": {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-header-panel/paper-header-panel.html",
+        "etype": "paper-header-panel",
+        "mode": "waterfall",
+        "toggles": true,
+        "scene": true,
+        "classes": ["flex"],
+        "styleprops": {
+            "flex": "auto"
+        }
+
+    },
+    "toolbar": {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-toolbar/paper-toolbar.html",
+        "etype": "paper-toolbar",
+        "classes": ["core-header"],
+        "scene": true,
+        "anima": [{
+                "auto": true,
+                "animations": [{
+                        "element": "title",
+                        "keyframes": [{
+                                "opacity": "0.1",
+                                "color": "#FF6F00",
+                                "transform": "scale(0.9)"
+                            }, {
+                                "opacity": "1.0",
+                                "color": "#BF360C",
+                                "transform": "scale(1)"
+                            }],
+                        "timing": {
+                            "direction": "alternate",
+                            "duration": 2000,
+                            "iterations": 10
+                        }
+                    }]
+
+            }],
+        "container": "coreheaderpanel",
+        "childComponents": ["<h1 id='title'>Ayla</h1>"],
+        "react": [
+            {
+                "ayla_reactprop1 && ayla_prop1 == 5": [{
+                        "setProperty": {
+                            "properties": {
+                                "scene": false
+                            }
+                        }
+                    }]
+            }
+        ],
+        "styleprops": {
+        }
+    },
+    "apppages": {
+        "def": "http://localhost/Vipsion/public/bower_components/iron-pages/iron-pages.html",
+        "etype": "iron-pages",
+        "scene": true,
+        "selected": "ayla",
+        "container": "coreheaderpanel",
+        "childComponents": ["<section id='main' class='flex horizontal layout fit' appName='ayla' is='vip-section'><section id='main2'  is='vip-section'></section><section id='main3'  is='vip-section'></section></section>"],
+        "attrForSelected": "appname"
+
+    },
+    "videosintel": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-video-youtube/vip-video-youtube.html",
+        "etype": "vip-video-youtube",
+        "controls": true,
+        "draggable": true,
+        "scene": true,
+        "store": ["currentTime", "autoplay"],
+        "container": "apppages|main2",
+        "vid": "LSHLg4hEVZ8",
+        "styleprops": {
+            "align-self": "center"
+        },
+        "index":
+                [{
+                        "section": "Viaje por las tierras de Mordum",
+                        "tenter": 2,
+                        "texit": 32
+                    },
+                    {
+                        "section": "Búsqueda del pequeño Scales",
+                        "tenter": 328,
+                        "texit": 571
+                    },
+                    {
+                        "section": "Victoria final contral el mal",
+                        "tenter": 572,
+                        "texit": 868
+                    }],
+        "anima":
+                [{
+                        "synched": "videosintel",
+                        "animations": [{
+                                "local": true,
+                                "element": "shadow",
+                                "keyframes": [{
+                                        "transform": "rotateY(0deg)"
+                                    }, {
+                                        "transform": "rotateY(360deg)"
+                                    }],
+                                "timing": {
+                                    "delay": 6000,
+                                    "duration": 5000,
+                                    "iterations": 1,
+                                    "direction": "alternate"
+                                }
+                            }
+                        ]
+                    }],
+        "react":
+                [
+                    {
+                        "timeline_reactcurrentTimeNotify":
+                                [{
+                                        "newCurrentTime": {
+                                            "time": "timeline_currentTimeNotify"
+                                        }
+                                    }]
+                    },
+                    {
+                        "toggleplay_reactpressed && toggleplay_pressed":
+                                [{
+                                        "togglePlay": {
+                                        }
+                                    }]
+                    }]
+    },
+    "messagepanel": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-message-panel/vip-message-panel.html",
+        "etype": "vip-message-panel",
+        "scene": true,
+        "container": "apppages|main2",
+        "dataSourcesMeteor": [{
+                "prop": "messages",
+                "source": {
+                    "collection": "Messages",
+                    "publication": "messages",
+                    "selector": {
+                        "app": "ayla"
+                    }
+                },
+                "synched": "videosintel"
+            }],
+        "dataSourcesConfig": [{
+                "prop": "messages",
+                "synched": "videosintel",
+                "value": [{
+                        "message": "combino mensajes",
+                        "tenter": 15,
+                        "texit": 20
+                    }]
+            }]
+    },
+    "videosintelhtml5": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-video-html5/vip-video-html5.html",
+        "etype": "vip-video-html5",
+        "scene": true,
+        "controls": true,
+        "container": "apppages|main3",
+        "store": ["currentTime"],
+        "sources":
+                [
+                    {
+                        "src": "http://media.w3.org/2010/05/sintel/trailer.mp4",
+                        "type": "video/mp4"
+                    }],
+        "react":
+                [
+                ]
+    },
+    "timeline":
+            {
+                "def": "http://localhost/Vipsion/public/bower_components/vip-synched-timeline/vip-synched-timeline.html",
+                "etype": "vip-synched-timeline",
+                "synched": "videosintel",
+                "container": "apppages|main",
+                "scene": true
+            },
+    "timedigital":
+            {
+                "def": "http://localhost/Vipsion/public/bower_components/vip-synched-time-digital/vip-synched-time-digital.html",
+                "etype": "vip-synched-time-digital",
+                "synched": "videosintel",
+                "container": "apppages|main",
+                "scene": true
+            },
+    "toggleplay":
+            {
+                "def": "http://localhost/Vipsion/public/bower_components/paper-fab/paper-fab.html",
+                "etype": "paper-fab",
+                "icon": "av:play-arrow",
+                "container": "apppages|main",
+                "scene": true,
+                "toggles": true,
+                "synched": "videosintel",
+                "react":
+                        [
+                            {
+                                "synched$_reactplayOn && synched$_playOn":
+                                        [{
+                                                "setProperty": {
+                                                    "properties": {
+                                                        "icon": "av:pause"
+                                                    }
+
+                                                }
+                                            }]
+                            },
+                            {
+                                "synched$_reactplayOn && synched$_reactplayOn == false":
+                                        [{
+                                                "setProperty": {
+                                                    "properties": {
+                                                        "icon": "av:play-arrow"
+                                                    }
+
+                                                }
+                                            }]
+                            }
+                        ]
+
+            }
+}

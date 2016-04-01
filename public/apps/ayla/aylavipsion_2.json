@@ -1,0 +1,1537 @@
+{
+    "ayla": {
+        "etype": "vip-app",
+        "apps": []
+    },
+    "coreheaderpanel": {
+        "def": "http://www.vipsion.com:3000/bower_components/core-header-panel/core-header-panel.html",
+        "etype": "core-header-panel",
+        "mode": "waterfall",
+        "scene": true,
+        "container": "ayla",
+        "attribs": {
+            "mode": "waterfall",
+            "main": "true"
+        },
+        "styleprops": {
+            "flex": "auto"
+        }
+
+    },
+    "toolbar": {
+        "def": "http://www.vipsion.com:3000/bower_components/core-toolbar/core-toolbar.html",
+        "etype": "core-toolbar",
+        "classes": ["core-header", "justify-center"],
+        "scene": true,
+        "hidden": true,
+        "container": "coreheaderpanel",
+        "childcomponents": ["&lt;h1 id='title'&gt;Ayla&lt;/h1&gt;", "&lt;core-icon icon='ayla'&gt;&lt;/core-icon&gt"],
+        "reactprop":
+                [
+                    {
+                        "hidden": "!aylabutton_active"
+                    }],
+        "anima": [{
+                "name": "anima_toolbar_message",
+                "auto": true,
+                "animations": [{
+                        "element": "toolbar0",
+                        "keyframes": [{
+                                "opacity": "0.98",
+                                "color": "#FF6F00",
+                                "transform": "scale(0.98)"
+                            }, {
+                                "opacity": "1.0",
+                                "color": "#BF360C",
+                                "transform": "scale(1)"
+                            }],
+                        "timing": {
+                            "direction": "alternate",
+                            "duration": 2000,
+                            "iterations": 1000000
+                        }
+                    }]
+
+            }],
+        "styleprops": {
+        }
+    },
+    "messages": {
+        "def": "http://www.vipsion.com:3000/bower_components/voice-elements/dist/voice-player.html",
+        "etype": "voice-player",
+        "autoplay": true,
+        "text": "Pulsa el botón y entra en Ayla",
+        "container": "ayla",
+        "accent": "es-ES"
+    },
+    "apppages": {
+        "def": "http://www.vipsion.com:3000/bower_components/core-pages/core-pages.html",
+        "etype": "core-pages",
+        "hidden": true,
+        "scene": true,
+        "container": "coreheaderpanel",
+        "childcomponents": [],
+        "styleprops": {
+            "flex": "8 1 0px",
+            "order": -1
+        },
+        "valueattr": "appName",
+        "excludedLocalNames": "vip-reactive vip-react vip-app vip-layout-r",
+        "reactprop":
+                [
+                    {
+                        "hidden": "!aylabutton_active"
+                    },
+                    {
+                        "selected": "contentaudioexplanation_section"
+                    }],
+        "react":
+                [{
+                        "contentaudioexplanation_reactsection":
+                                [{
+                                        "setProperty":
+                                                {
+                                                    "selected": "contentaudioexplanation_section"
+                                                }
+                                    }]
+                    },
+                    {
+                        "document_appready":
+                                [{
+                                        "setProperty":
+                                                {
+                                                    "selected": "document_appready_app"
+                                                }
+                                    }]
+                    }]
+
+    },
+    "layoutcontrols": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-layout/vip-layout.html",
+        "etype": "vip-layout",
+        "container": "coreheaderpanel",
+        "layout": {
+            "id": "controls",
+            "vertical": true,
+            "center": true,
+            "around_justified": true,
+            "hidden": true,
+            "styles":
+                    {
+                        "background-color": "#FFECB3"
+                    }
+        },
+        "react":
+                [{
+                        "aylabutton_reactactive && aylabutton_active":
+                                [{
+                                        "changeLayout": {
+                                            "section": "'controls'",
+                                            "hidden": false
+                                        }
+                                    }]
+                    }]
+    },
+    "layoutayla": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-layout/vip-layout.html",
+        "etype": "vip-layout",
+        "container": "apppages",
+        "name": "layout",
+        "appName": "webcomponents",
+        "scene": true,
+        "target": "ayla",
+        "layout": {
+            "id": "ayla",
+            "vertical": true,
+            "styles":
+                    {
+                        "background-color": "#FFECB3"
+                    },
+            "children": [
+                {
+                    "id": "webcomponents",
+                    "appName": "webcomponents",
+                    "styles": {
+                        "flex": "8 1 0px"
+                    },
+                    "vertical": true,
+                    "children": [{
+                            "id": "section1_1",
+                            "horizontal": true,
+                            "children": [{
+                                    "id": "section1_1_1",
+                                    "styles": {
+                                        "flex": "8 1 0px"
+                                    }
+                                },
+                                {
+                                    "id": "section1_1_2",
+                                    "center": true
+                                }
+
+                            ]
+                        },
+                        {
+                            "id": "section1_2",
+                            "horizontal": true,
+                            "center": true,
+                            "around_justified": true
+                        },
+                        {
+                            "id": "section1_3",
+                            "horizontal": true,
+                            "center": true
+
+                        },
+                        {
+                            "id": "section1_4",
+                            "horizontal": true,
+                            "center": true,
+                            "around_justified": true
+                        }
+                    ]
+                },
+                {
+                    "id": "reactividad",
+                    "appName": "reactividad",
+                    "vertical": true,
+                    "children": [{
+                            "id": "section2_1",
+                            "horizontal": true,
+                            "children": [{
+                                    "id": "section2_1_1",
+                                    "styles": {
+                                        "flex": "8 1 0px"
+                                    }
+                                },
+                                {
+                                    "id": "section2_1_2"
+                                }
+
+                            ]
+                        },
+                        {
+                            "id": "section2_2",
+                            "horizontal": true,
+                            "center": true,
+                            "around_justified": true
+                        },
+                        {
+                            "id": "section2_3",
+                            "horizontal": true,
+                            "center": true
+
+                        },
+                        {
+                            "id": "section2_4",
+                            "horizontal": true,
+                            "center": true,
+                            "around_justified": true
+                        }
+                    ]
+                },
+                {
+                    "id": "sincronizacion",
+                    "appName": "sincronizacion",
+                    "vertical": true,
+                    "children": [{
+                            "id": "section3_1",
+                            "horizontal": true,
+                            "children": [{
+                                    "id": "section3_1_1",
+                                    "styles": {
+                                        "flex": "8 1 0px"
+                                    }
+                                },
+                                {
+                                    "id": "section3_1_2"
+                                }
+
+                            ]
+                        },
+                        {
+                            "id": "section3_2",
+                            "center": true,
+                            "vertical": true,
+                            "styles": {
+                                "flex": "8 1 0px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "declarativo",
+                    "appName": "declarativo",
+                    "vertical": true,
+                    "children": [{
+                            "id": "section4text",
+                            "styles": {
+                                "flex": "4 1 0px"
+                            }
+                        },
+                        {
+                            "id": "section4anim"
+                        }]
+                }]
+        }
+
+    },
+    "webcomponentsmessage1": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "container": "layoutayla",
+        "section": "section1_1_1",
+        "styleprops": {
+        },
+        "svg": {
+            "texts": [{
+                    "id": "message1",
+                    "x": "5%",
+                    "y": "50%",
+                    "opacity": 0,
+                    "font_size": "30px",
+                    "fill": "#ff6f00",
+                    "stroke": "black",
+                    "text": "Crea actividades combinando componentes web"
+                }]
+        },
+        "anima": [{
+                "name": "animamessage1",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "message1",
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "duration": 1000,
+                            "fill": "forwards"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "flex": "none"
+
+        }
+    },
+    "webcomponentsmessage2": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "container": "layoutayla",
+        "section": "section1_3",
+        "styleprops": {
+        },
+        "svg": {
+            "texts": [{
+                    "id": "message2",
+                    "x": "25%",
+                    "y": "50%",
+                    "fill": "black",
+                    "stroke": "#ff6f00",
+                    "opacity": 0,
+                    "font_size": "30px",
+                    "text": "Juega con los elementos de ejemplo"
+                }]
+        },
+        "anima": [{
+                "name": "animamessage1",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "message2",
+                        "keyframes": [{
+                                "opacity": "0.5",
+                                "transform": "scale(1)"
+                            }, {
+                                "opacity": "1.0",
+                                "transform": "scale(2)"
+                            }],
+                        "timing": {
+                            "delay": 30000,
+                            "duration": 1000,
+                            "iterations": 1000,
+                            "direction": "alternate"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "flex": "none"
+
+        }
+    },
+    "puzzle": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "relative": true,
+        "container": "layoutayla",
+        "section": "section1_1_2",
+        "styleprops": {
+        },
+        "svg": {
+            "paths":
+                    [{
+                            "id": "figure1",
+                            "fill": "#ffc107",
+                            "stroke": "#ffc107",
+                            "opacity": 0,
+                            "stroke_width": "2px",
+                            "points": [{
+                                    "x": 5,
+                                    "y": 5
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 5
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 30
+                                },
+                                {
+                                    "x": 40,
+                                    "y": 30
+                                },
+                                {
+                                    "x": 40,
+                                    "y": 50
+                                },
+                                {
+                                    "x": 5,
+                                    "y": 50
+                                },
+                                {
+                                    "x": 5,
+                                    "y": 5
+                                }]
+                        },
+                        {
+                            "id": "figure2",
+                            "fill": "#ff6f00",
+                            "stroke": "#ff6f00",
+                            "opacity": 0,
+                            "stroke_width": "2px",
+                            "points": [{
+                                    "x": 70,
+                                    "y": 5
+                                },
+                                {
+                                    "x": 95,
+                                    "y": 5
+                                },
+                                {
+                                    "x": 95,
+                                    "y": 95
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 95
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 80
+                                },
+                                {
+                                    "x": 40,
+                                    "y": 80
+                                },
+                                {
+                                    "x": 40,
+                                    "y": 30
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 30
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 5
+                                }]
+                        },
+                        {
+                            "id": "figure3",
+                            "fill": "#ffecb3",
+                            "stroke": "#ffecb3",
+                            "opacity": 0,
+                            "stroke_width": "2px",
+                            "points": [{
+                                    "x": 5,
+                                    "y": 50
+                                },
+                                {
+                                    "x": 5,
+                                    "y": 95
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 95
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 80
+                                },
+                                {
+                                    "x": 40,
+                                    "y": 80
+                                },
+                                {
+                                    "x": 40,
+                                    "y": 50
+                                },
+                                {
+                                    "x": 5,
+                                    "y": 50
+                                }]
+                        }
+                    ]
+        },
+        "anima": [{
+                "name": "animafigure1",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "figure1",
+                        "keyframes": [{
+                                "opacity": "0.0",
+                                "transform": "translate(0px, -50px)"
+                            }, {
+                                "opacity": "1.0",
+                                "transform": "translate(0px, 0px)"
+                            }],
+                        "timing": {
+                            "delay": 14000,
+                            "duration": 2000,
+                            "iterations": 2,
+                            "direction": "alternate"
+
+                        }
+                    },
+                    {
+                        "element": "figure2",
+                        "keyframes": [{
+                                "opacity": "0.0",
+                                "transform": "translate(50px, 0px)"
+                            }, {
+                                "opacity": "1.0",
+                                "transform": "translate(0px, 0px)"
+                            }],
+                        "timing": {
+                            "delay": 14000,
+                            "duration": 2000,
+                            "iterations": 2,
+                            "direction": "alternate"
+
+                        }
+                    },
+                    {
+                        "element": "figure3",
+                        "keyframes": [{
+                                "opacity": "0.0",
+                                "transform": "translate(0px, 50px)"
+                            }, {
+                                "opacity": "1.0",
+                                "transform": "translate(0px, 0px)"
+                            }],
+                        "timing": {
+                            "delay": 14000,
+                            "duration": 2000,
+                            "iterations": 2,
+                            "direction": "alternate"
+
+                        }
+                    }]
+            }]
+    },
+    "componentbuttonwc": {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-button/paper-button.html",
+        "etype": "paper-button",
+        "toggle": true,
+        "raised": true,
+        "container": "layoutayla",
+        "section": "section1_2",
+        "childcomponents": ["&lt;div&gt;Púlsame&lt;/div&gt;"],
+        "anima": [{
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 17500,
+                            "duration": 1000,
+                            "fill": "forwards"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "align-self": "flex-start"
+        }
+    },
+    "componenticonwc": {
+        "def": "http://www.vipsion.com:3000/bower_components/core-icon/core-icon.html",
+        "etype": "core-icon",
+        "icon": "polymer",
+        "container": "layoutayla",
+        "section": "section1_1_2",
+        "anima": [{
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 7000,
+                            "duration": 2500,
+                            "iterations": 2,
+                            "direction": "alternate"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "align-self": "flex-start"
+        }
+    },
+    "componentprogresswc": {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-progress/paper-progress.html",
+        "etype": "paper-progress",
+        "container": "layoutayla",
+        "section": "section1_2",
+        "anima": [{
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 19500,
+                            "duration": 1000,
+                            "fill": "forwards"
+                        }
+                    }]
+            }],
+        "reactprop": [
+            {
+                "value": "(audioexplanation_currentTime * 5) % 100"
+            }],
+        "styleprops": {
+            "align-self": "center"
+        }
+    },
+    "componentmenubuttonwc": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-menu-button/vip-menu-button.html",
+        "etype": "vip-menu-button",
+        "icon": "menu",
+        "container": "layoutayla",
+        "section": "section1_2",
+        "opened": true,
+        "items": ["option1", "option2", "option3"],
+        "anima": [{
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 21500,
+                            "duration": 1000,
+                            "fill": "forwards"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "align-self": "flex-start"
+        }
+    },
+    "componentsliderwc": {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-slider/paper-slider.html",
+        "etype": "paper-slider",
+        "value": 30,
+        "container": "layoutayla",
+        "section": "section1_2",
+        "anima": [{
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 23500,
+                            "duration": 1000,
+                            "fill": "forwards"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "align-self": "flex-start"
+        }
+    },
+    "componentradiobuttongroupwc": {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-radio-group/paper-radio-group.html",
+        "etype": "paper-radio-group",
+        "excludedLocalNames": "vip-reactive vip-react vip-app vip-layout-r",
+        "container": "layoutayla",
+        "section": "section1_4",
+        "childcomponents": ["&lt;paper-radio-button label='Botón de selección 1'&gt;&lt;/paper-radio-button&gt;", "&lt;paper-radio-button label='Botón de selección 2'&gt;&lt;/paper-radio-button&gt;"],
+        "anima": [{
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 25500,
+                            "duration": 1000,
+                            "fill": "forwards"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "align-self": "flex-start"
+        }
+    },
+    "componentspinnerwc": {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-spinner/paper-spinner.html",
+        "etype": "paper-spinner",
+        "active": true,
+        "container": "layoutayla",
+        "section": "section1_4",
+        "anima": [{
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 27500,
+                            "duration": 1000,
+                            "fill": "forwards"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "align-self": "center"
+        }
+    },
+    "componentcheckboxwc": {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-checkbox/paper-checkbox.html",
+        "etype": "paper-checkbox",
+        "label": "Caja de verficación",
+        "container": "layoutayla",
+        "section": "section1_4",
+        "anima": [{
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 29500,
+                            "duration": 1000,
+                            "fill": "forwards"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "align-self": "flex-start"
+        }
+    },
+    "reactivitymessage1": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "container": "layoutayla",
+        "section": "section2_1_1",
+        "styleprops": {
+        },
+        "svg": {
+            "texts": [{
+                    "id": "message2",
+                    "x": "5%",
+                    "y": "50%",
+                    "opacity": 0,
+                    "font_size": "30px",
+                    "fill": "#ff6f00",
+                    "stroke": "black",
+                    "text": "Los elementos están conectados entre sí"
+                }]
+        },
+        "anima": [{
+                "name": "animamessage2",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "message2",
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 66000,
+                            "duration": 1000,
+                            "fill": "forwards"
+                        }
+                    }]
+            }]
+    },
+    "reactivitymessage2": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "container": "layoutayla",
+        "section": "section2_3",
+        "styleprops": {
+        },
+        "svg": {
+            "texts": [{
+                    "id": "message2",
+                    "x": "25%",
+                    "y": "50%",
+                    "fill": "black",
+                    "stroke": "#ff6f00",
+                    "opacity": 0,
+                    "font_size": "30px",
+                    "text": "Comprueba que los elementos son reactivos"
+                }]
+        },
+        "anima": [{
+                "name": "animamessage1",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "message2",
+                        "keyframes": [{
+                                "opacity": "0.5",
+                                "transform": "scale(1)"
+                            }, {
+                                "opacity": "1.0",
+                                "transform": "scale(2)"
+                            }],
+                        "timing": {
+                            "delay": 78000,
+                            "duration": 1000,
+                            "iterations": 1000,
+                            "direction": "alternate"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "flex": "none"
+
+        }
+    },
+    "componentbuttonr": {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-button/paper-button.html",
+        "etype": "paper-button",
+        "scene": true,
+        "raised": true,
+        "container": "layoutayla",
+        "section": "section2_2",
+        "childcomponents": ["&lt;div&gt;Avanza la línea de progreso&lt;/div&gt;"],
+        "animations": [
+            {
+                "keyframes": [{
+                        "opacity": "0.0"
+                    }, {
+                        "opacity": "1.0"
+                    }],
+                "timing": {
+                    "delay": 2000,
+                    "duration": 500,
+                    "fill": "forwards"
+                }
+            }],
+        "styleprops": {
+            "align-self": "flex-start"
+        }
+    },
+    "componentprogressr": {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-progress/paper-progress.html",
+        "etype": "paper-progress",
+        "scene": true,
+        "container": "layoutayla",
+        "section": "section2_2",
+        "animations": [
+            {
+                "keyframes": [{
+                        "opacity": "0.0"
+                    }, {
+                        "opacity": "1.0"
+                    }],
+                "timing": {
+                    "delay": 5000,
+                    "duration": 500,
+                    "fill": "forwards"
+                }
+            }],
+        "react": [
+            {
+                "componentbuttonr_reactpressed":
+                        [{
+                                "setProperty":
+                                        {
+                                            "value": "(componentprogressr_value + 10) % 100"
+                                        }
+                            }]
+            }],
+        "styleprops": {
+            "align-self": "center"
+        }
+    },
+    "componentmenubuttonr": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-menu-button/vip-menu-button.html",
+        "etype": "vip-menu-button",
+        "icon": "menu",
+        "scene": true,
+        "container": "layoutayla",
+        "section": "section2_2",
+        "opened": true,
+        "items": ["Activa checkbox", "Desactiva checkbox"],
+        "styleprops": {
+            "align-self": "flex-start"
+        }
+    },
+    "componentsliderr": {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-slider/paper-slider.html",
+        "etype": "paper-slider",
+        "scene": true,
+        "value": 60,
+        "container": "layoutayla",
+        "section": "section2_2",
+        "styleprops": {
+            "align-self": "flex-start"
+        }
+    },
+    "componentfabr": {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-fab/paper-fab.html",
+        "etype": "paper-fab",
+        "scene": true,
+        "container": "layoutayla",
+        "section": "section2_4",
+        "icon": "av:snooze",
+        "styleprops": {
+            "align-self": "flex-start"
+        }
+    },
+    "alarmclock": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-audio-html5/vip-audio-html5.html",
+        "etype": "vip-audio-html5",
+        "sources":
+                [
+                    {
+                        "src": "http://www.vipsion.com:3000/ayla/media/alarmclock.mp3",
+                        "type": "audio/mp3"
+                    }],
+        "react":
+                [
+                    {
+                        "componentfabr_reactpressed && componentfabr_pressed":
+                                [{
+                                        "togglePlay": {
+                                        }
+                                    }]
+                    }
+                ]
+
+    },
+    "componentspinnerr": {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-spinner/paper-spinner.html",
+        "etype": "paper-spinner",
+        "scene": true,
+        "active": true,
+        "container": "layoutayla",
+        "section": "section2_4",
+        "react": [
+            {
+                "componentsliderr_reactvalue && componentsliderr_value > 50":
+                        [{
+                                "setProperty":
+                                        {
+                                            "active": true
+                                        }
+                            }]
+            },
+            {
+                "componentsliderr_reactvalue && componentsliderr_value <= 50":
+                        [{
+                                "setProperty":
+                                        {
+                                            "active": false
+                                        }
+                            }]
+            }],
+        "styleprops": {
+            "align-self": "center"
+        }
+    },
+    "componentcheckboxr": {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-checkbox/paper-checkbox.html",
+        "etype": "paper-checkbox",
+        "scene": true,
+        "label": "Caja de verificación",
+        "container": "layoutayla",
+        "section": "section2_4",
+        "react": [
+            {
+                "componentmenubuttonr_reactcurrentSelection && componentmenubuttonr_currentSelection == 'Activa checkbox'":
+                        [{
+                                "setProperty":
+                                        {
+                                            "checked": true
+                                        }
+                            }]
+            },
+            {
+                "componentmenubuttonr_reactcurrentSelection && componentmenubuttonr_currentSelection == 'Desactiva checkbox'":
+                        [{
+                                "setProperty":
+                                        {
+                                            "checked": false
+                                        }
+                            }]
+            }],
+        "styleprops": {
+            "align-self": "flex-start"
+        }
+    },
+    "expressjson": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "container": "layoutayla",
+        "section": "section3text",
+        "styleprops": {
+        },
+        "svg": {
+            "texts": [{
+                    "id": "message3",
+                    "x": "5%",
+                    "y": "50%",
+                    "opacity": 0,
+                    "font_size": "25px",
+                    "text": "Expresado en Json"
+                }]
+        },
+        "anima": [{
+                "name": "animamessage3",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "message3",
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 2000,
+                            "duration": 500,
+                            "fill": "forwards"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "flex": "none"
+
+        }
+    },
+    "reactivityanim": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "container": "layoutayla",
+        "section": "section2_1_2",
+        "svg": {
+            "lines":
+                    [{
+                            "id": "line1",
+                            "stroke": "red",
+                            "opacity": 1,
+                            "stroke_width": "5px",
+                            "x1": 50,
+                            "y1": 20,
+                            "x2": 50,
+                            "y2": 70
+                        }],
+            "circles":
+                    [{
+                            "id": "circle1",
+                            "fill": "red",
+                            "stroke": "black",
+                            "opacity": 1,
+                            "stroke_width": "3px",
+                            "r": 8,
+                            "cx": 50,
+                            "cy": 20
+                        },
+                        {
+                            "id": "circle2",
+                            "fill": "black",
+                            "stroke": "black",
+                            "opacity": 1,
+                            "stroke_width": "2px",
+                            "r": 8,
+                            "cx": 50,
+                            "cy": 70
+                        }]
+        },
+        "anima": [{
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "line1",
+                        "keyframes": [{
+                                "stroke": "red"
+                            }, {
+                                "stroke": "black"
+                            }
+                        ],
+                        "timing": {
+                            "delay": 67000,
+                            "duration": 1000,
+                            "iterations": 20,
+                            "direction": "alternate"
+
+                        }
+                    }]
+            }]
+    },
+    "sincronizacionmessage1": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "container": "layoutayla",
+        "section": "section3_1_1",
+        "styleprops": {
+        },
+        "svg": {
+            "texts": [{
+                    "id": "message1",
+                    "x": "5%",
+                    "y": "50%",
+                    "opacity": 0,
+                    "font_size": "30px",
+                    "fill": "#ff6f00",
+                    "stroke": "black",
+                    "text": "Sincroniza los elementos de la actividad"
+                }]
+        },
+        "anima": [{
+                "name": "animamessage1",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "message1",
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "duration": 1000,
+                            "fill": "forwards"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "flex": "none"
+
+        }
+    },
+    "videosintel": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-video-youtube/vip-video-youtube.html",
+        "etype": "vip-video-youtube",
+        "controls": true,
+        "scene": true,
+        "muted": true,
+        "store": ["currentTime"],
+        "container": "layoutayla",
+        "section": "section3_2",
+        "vid": "LSHLg4hEVZ8",
+        "styleprops": {
+            "align-self": "center"
+        },
+        "content":
+                {
+                    "sections": {
+                        "1-327": "Viaje por las tierras de Mordum",
+                        "328-571": "Búsqueda del pequeño Scales",
+                        "572-868": "Victoria final contral el mal"
+                    }
+                },
+        "react":
+                [
+                    {
+                        "audioexplanation_entersection && audioexplanation_entersection_section == 'sincronizacion'":
+                                [{
+                                        "play":
+                                                {
+                                                }
+                                    }]
+                    },
+                    {
+                        "contentaudioexplanation_reactsection && contentaudioexplanation_section == 'sincronizacion'":
+                                [{
+                                        "play":
+                                                {
+                                                }
+                                    }]
+                    },
+                    {
+                        "videosintelmenu_itemselected":
+                                [{
+                                        "seekSectionTime":
+                                                {
+                                                    "section": "videosintelmenu_itemselected_item"
+                                                }
+                                    }]
+                    }],
+        "anima":
+                [{
+                        "synched": "videosintel",
+                        "animations": [{
+                                "element": "shadow",
+                                "keyframes": [{
+                                        "transform": "rotateY(0deg)"
+                                    }, {
+                                        "transform": "rotateY(360deg)"
+                                    }],
+                                "timing": {
+                                    "delay": 5000,
+                                    "duration": 5000,
+                                    "iterations": 1,
+                                    "direction": "alternate"
+                                }
+                            }
+                        ]
+                    }]
+    },
+    "videosintelsvg": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "container": "videosintel",
+        "svg": {
+            "synched": "videosintel",
+            "texts": [{
+                    "id": "caption",
+                    "x": "25%",
+                    "y": "50%",
+                    "opacity": 0,
+                    "font_size": "30px",
+                    "fill": "white",
+                    "stroke": "white",
+                    "text": "This caption was overlayed by Ayla"
+                }]
+        },
+        "anima": [{
+                "synched": "videosintel",
+                "animations": [
+                    {
+                        "element": "caption",
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 25000,
+                            "duration": 2000,
+                            "iterations": 2,
+                            "direction": "alternate"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "position": "absolute",
+            "top": "0",
+            "left": "0",
+            "bottom": "50%",
+            "right": 0
+        }
+
+    },
+    "videosintelmenu": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-menu-button/vip-menu-button.html",
+        "etype": "vip-menu-button",
+        "icon": "menu",
+        "container": "videosintel",
+        "items": ["Viaje por las tierras de Mordum", "Búsqueda del pequeño Scales", "Victoria final contral el mal"],
+        "anima": [{
+                "synched": "videosintel",
+                "animations": [
+                    {
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "duration": 1000,
+                            "fill": "forwards"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "z-index": 50,
+            "position": "absolute",
+            "top": "10%",
+            "left": "0%",
+            "background": "#ffc107"
+        }
+    },
+    "curlyleft": {
+        "def": "http://www.vipsion.com:3000/bower_components/core-icon/core-icon.html",
+        "etype": "core-icon",
+        "icon": "curly-left",
+        "scene": true,
+        "container": "layoutayla",
+        "section": "section3anim1",
+        "anima": [{
+                "name": "animacurlyleft",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "svg",
+                        "keyframes": [{
+                                "opacity": 0.0,
+                                "transform": "translate(0px, 0px)"
+                            }, {
+                                "opacity": 1.0,
+                                "transform": "translate(70px, 0px)"
+                            }],
+                        "timing": {
+                            "delay": 5000,
+                            "duration": 1000,
+                            "fill": "forwards"
+
+                        }
+                    }]
+            }]
+    },
+    "curlyright":
+            {
+                "def": "http://www.vipsion.com:3000/bower_components/core-icon/core-icon.html",
+                "etype": "core-icon",
+                "icon": "curly-right",
+                "scene": true,
+                "container": "layoutayla",
+                "section": "section3anim2",
+                "anima": [{
+                        "name": "animacurlyright",
+                        "synched": "audioexplanation",
+                        "animations": [
+                            {
+                                "element": "svg",
+                                "keyframes": [{
+                                        "opacity": 0.0,
+                                        "transform": "translate(0px, 0px)"
+                                    }, {
+                                        "opacity": 1.0,
+                                        "transform": "translate(-70px, 0px)"
+                                    }],
+                                "timing": {
+                                    "delay": 5000,
+                                    "duration": 1000,
+                                    "fill": "forwards"
+
+                                }
+                            }]
+                    }]
+            },
+    "aylabutton": {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-fab/paper-fab.html",
+        "etype": "paper-fab",
+        "icon": "ayla",
+        "scene": true,
+        "container": "coreheaderpanel",
+        "toggle": true,
+        "disabled": true,
+        "styleprops": {
+            "margin": "auto",
+            "height": "200px",
+            "width": "200px"
+        },
+        "reactprop":
+                [
+                    {
+                        "hidden": "aylabutton_active"
+                    }
+                ],
+        "react":
+                [{
+                        "messages_end":
+                                [{
+                                        "setProperty": {
+                                            "disabled": false
+                                        }
+                                    }]
+                    }]
+
+    },
+    "audioexplanation": {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-audio-html5/vip-audio-html5.html",
+        "etype": "vip-audio-html5",
+        "endTime": 144,
+        "sources":
+                [
+                    {
+                        "src": "http://www.vipsion.com:3000/ayla/media/ayla.mp3",
+                        "type": "audio/mp3"
+                    }],
+        "content":
+                {
+                    "sections": {
+                        "1-65": "webcomponents",
+                        "66-104": "reactividad",
+                        "105-145": "sincronizacion",
+                        "146-196": "declarativo",
+                        "197-245": "persistencia"
+                    }
+                },
+        "react":
+                [
+                    {
+                        "aylabutton_reactactive && aylabutton_active":
+                                [{
+                                        "play": {
+                                        }
+                                    }]
+                    },
+                    {
+                        "toggleplay_reactpressed && toggleplay_pressed":
+                                [{
+                                        "togglePlay": {
+                                        }
+                                    }]
+                    }
+                ],
+        "notify":
+                [{
+                        "synched": "audioexplanation",
+                        "notifications":
+                                [{
+                                        "time": 5,
+                                        "notification": "showcontrols"
+                                    }]
+
+                    }],
+        "reactprop":
+                [
+                    {
+                        "currentTime": "timeline_setTime"
+                    }]
+
+    },
+    "toggleplay":
+            {
+                "def": "http://www.vipsion.com:3000/bower_components/paper-fab/paper-fab.html",
+                "etype": "paper-fab",
+                "icon": "av:play-arrow",
+                "container": "layoutcontrols",
+                "section": "controls",
+                "synched": "audioexplanation",
+                "react":
+                        [
+                            {
+                                "synched$_reacttimeToPlay && synched$_timeToPlay":
+                                        [{
+                                                "setProperty": {
+                                                    "icon": "'av:pause'"
+
+                                                }
+                                            }]
+                            },
+                            {
+                                "synched$_reacttimeToPlay && synched$_timeToPlay == false":
+                                        [{
+                                                "setProperty": {
+                                                    "icon": "'av:play-arrow'"
+
+                                                }
+                                            }]
+                            }
+                        ],
+                "anima": [{
+                        "synched": "audioexplanation",
+                        "animations": [
+                            {
+                                "keyframes": [{
+                                        "opacity": "0.0"
+                                    }, {
+                                        "opacity": "1.0"
+                                    }],
+                                "timing": {
+                                    "delay": 2000,
+                                    "duration": 1000,
+                                    "fill": "forwards"
+                                }
+                            }]
+                    }]
+
+            },
+    "timeline":
+            {
+                "def": "http://www.vipsion.com:3000/bower_components/vip-video-timeline/vip-video-timeline.html",
+                "etype": "vip-video-timeline",
+                "synched": "audioexplanation",
+                "container": "layoutcontrols",
+                "section": "controls",
+                "reactprop":
+                        [{
+                                "duration": "synched$_duration"
+                            },
+                            {
+                                "currentTime": "synched$_setTime"
+                            },
+                            {
+                                "timeToPlay": "synched$_playback"
+                            }],
+                "anima": [{
+                        "synched": "audioexplanation",
+                        "animations": [
+                            {
+                                "keyframes": [{
+                                        "opacity": "0.0"
+                                    }, {
+                                        "opacity": "1.0"
+                                    }],
+                                "timing": {
+                                    "delay": 3000,
+                                    "duration": 1000,
+                                    "fill": "forwards"
+                                }
+                            }]
+                    }]
+
+            }
+}

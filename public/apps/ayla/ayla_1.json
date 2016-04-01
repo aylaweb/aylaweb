@@ -1,0 +1,206 @@
+ "curlyleft": {
+        "def": "http://localhost/Vipsion/public/bower_components/core-icon/core-icon.html",
+        "etype": "core-icon",
+        "icon": "curly-left",
+        "scene": true,
+        "container": "layoutayla",
+        "section": "section4_1_2",
+        "anima": [{
+                "name": "animacurlyleft",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "svg",
+                        "keyframes": [{
+                                "opacity": 0.0,
+                                "transform": "translate(0px, 0px)"
+                            }, {
+                                "opacity": 1.0,
+                                "transform": "translate(10px, 0px)"
+                            }],
+                        "timing": {
+                            "delay": 148000,
+                            "duration": 2000,
+                            "fill": "forwards"
+
+                        }
+                    }]
+            }]
+    },
+    "curlyright":
+            {
+                "def": "http://localhost/Vipsion/public/bower_components/core-icon/core-icon.html",
+                "etype": "core-icon",
+                "icon": "curly-right",
+                "scene": true,
+                "container": "layoutayla",
+                "section": "section4_1_2",
+                "anima": [{
+                        "synched": "audioexplanation",
+                        "animations": [
+                            {
+                                "element": "svg",
+                                "keyframes": [{
+                                        "opacity": 0.0,
+                                        "transform": "translate(0px, 0px)"
+                                    }, {
+                                        "opacity": 1.0,
+                                        "transform": "translate(-10px, 0px)"
+                                    }],
+                                "timing": {
+                                    "delay": 148000,
+                                    "duration": 2000,
+                                    "fill": "forwards"
+                                }
+                            }]
+                    }]
+            },
+{
+    "ayla": {
+        "etype": "vip-app",
+        "apps": []
+    },
+    "core_header_panel": {
+        "def": "http://localhost/Vipsion/public/bower_components/core-header-panel/core-header-panel.html",
+        "etype": "core-header-panel",
+        "mode": "waterfall",
+        "scene": true,
+        "container": "ayla",
+        "attribs": {
+            "mode": "waterfall",
+            "main": "true"
+        },
+        "styleprops": {
+            "flex": "auto"
+        }
+
+    },
+    "toolbar": {
+        "def": "http://localhost/Vipsion/public/bower_components/core-toolbar/core-toolbar.html",
+        "etype": "core-toolbar",
+        "classes": ["core-header", "justify-center"],
+        "container": "core_header_panel",
+        "childcomponents": ["&lt;h1 id='title'&gt;Ayla Web&lt;/h1&gt;"],
+        "reactprop":
+                [
+                    {
+                        "scene": "startplay_active"
+                    }],
+        "anima": [{
+                "name": "anima_toolbar_message",
+                "auto": true,
+                "animations": [{
+                        "element": "title",
+                        "keyframes": [{
+                                "opacity": "0.98",
+                                "color": "#FF6F00",
+                                "transform": "scale(0.98)"
+                            }, {
+                                "opacity": "1.0",
+                                "color": "#BF360C",
+                                "transform": "scale(1)"
+                            }],
+                        "timing": {
+                            "direction": "alternate",
+                            "duration": 2000,
+                            "iterations": 1000000
+                        }
+                    }]
+
+            }],
+        "styleprops": {
+        }
+    },
+    "toolbar-message": {
+        "def": "http://localhost/Vipsion/public/bower_components/core-item/core-item.html",
+        "etype": "core-item",
+        "container": "toolbar",
+        "label": "Ayla",
+        "anima": [{
+                "name": "anima_toolbar_message",
+                "auto": true,
+                "animations": [{
+                        "keyframes": [{
+                                "opacity": "0.98",
+                                "color": "#FF6F00",
+                                "transform": "scale(0.98)"
+                            }, {
+                                "opacity": "1.0",
+                                "color": "#BF360C",
+                                "transform": "scale(1)"
+                            }],
+                        "timing": {
+                            "direction": "alternate",
+                            "duration": 2000,
+                            "iterations": 1000000
+                        }
+                    }]
+
+            }],
+        "styleprops": {
+            "font-size": "30px",
+            "color": "#FF6F00"
+        }
+    },
+    "messages": {
+        "def": "http://localhost/Vipsion/public/bower_components/voice-elements/dist/voice-player.html",
+        "etype": "voice-player",
+        "container": "ayla",
+        "accent": "es-ES",
+        "react":
+                [{
+                        "startplay_reactactive && startplay_active":
+                                [{
+                                        "setProperty": {
+                                            "text": "'Le damos la bienvenida a Ayla'"
+                                        }
+                                    },
+                                    {
+                                        "speak": {
+                                            "async": 500
+                                        }
+                                    }]
+                    }]
+    },
+    "startplay": {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-fab/paper-fab.html",
+        "etype": "paper-fab",
+        "icon": "av:play-arrow",
+        "scene": true,
+        "container": "core_header_panel",
+        "toggle": true,
+        "styleprops": {
+            "margin": "auto",
+            "height": "200px",
+            "width": "200px"
+        },
+        "reactprop":
+                [
+                    {
+                        "hidden": "startplay_active"
+                    }],
+        "react":
+                [{
+                        "messages_end":
+                                [{
+                                        "setProperty": {
+                                            "disabled": false
+                                        }
+                                    }]
+                    }]
+    },
+    "initial-explanation": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-object/vip-object.html",
+        "etype": "vip-object",
+        "scene": true,
+        "container": "core_header_panel",
+        "styleprops": {
+        },
+        "anima":
+                [
+                    {
+                        "hidden": "startplay_active"
+                    }]
+    }
+
+}

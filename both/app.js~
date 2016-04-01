@@ -1,0 +1,13 @@
+Router.route('/', function(){
+    this.render('Home');
+});
+Router.route('/local', function(){
+    this.render('Local');
+});
+ElemRep = new Mongo.Collection("elemrep");
+Router.route('/', function(){
+    this.render('Home');
+});
+Router.route('/local', function(){
+    this.render('Local');
+});

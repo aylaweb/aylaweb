@@ -1,0 +1,483 @@
+{
+    "mainHTML2":
+            {
+                "etype": "vip-app",
+                "description": "App que muestra como se realiza una tortilla de chorizo"
+            },
+    "layout": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-layout/vip-layout.html",
+        "etype": "vip-layout",
+        "name": "layout",
+        "container": "mainHTML2",
+        "scene": true,
+        "layout": {
+            "id": "mainHTML2",
+            "horizontal": true,
+            "styles":
+                    {
+                        "background-color": "#FFECB3"
+                    },
+            "children": [
+                {
+                    "id": "l_11",
+                    "vertical": true,
+                    "center": true
+                },
+                {
+                    "id": "l_12",
+                    "horizontal": true,
+                    "styles":
+                            {
+                                "flex": "3 1 0px"
+                            },
+                    "children": [
+                        {
+                            "id": "l_121",
+                            "vertical": true,
+                            "styles":
+                                    {
+                                        "flex": "none"
+                                    }
+                        },
+                        {
+                            "id": "l_122",
+                            "vertical": true,
+                            "styles":
+                                    {
+                                        "flex": "3 1 0px"
+                                    }
+                        }
+                    ]
+                }
+            ]
+
+        }
+    },
+    "imagen": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "container": "layout",
+        "section": "l_122",
+        "svg": {
+            "synched": "videoenriquecido",
+            "foreignObjects": [{
+                    "x": "0%",
+                    "y": "0%",
+                    "width": "100%",
+                    "height": "100%",
+                    "font": "italic bold 20px/30px Georgia, serif",
+                    "text": "En la ficha de clientes, en las cuentas de un cliente he visto también la posibilidad",
+                    "animations": [
+                        {
+                            "keyframes": [{
+                                    "opacity": "0.0"
+                                }, {
+                                    "opacity": "1.0"
+                                }],
+                            "timing": {
+                                "delay": 15000,
+                                "duration": 100,
+                                "fill": "forwards"
+                            }
+                        },
+                        {
+                            "keyframes": [{
+                                    "opacity": "1.0"
+                                }, {
+                                    "opacity": "0.0"
+                                }],
+                            "timing": {
+                                "delay": 4000,
+                                "duration": 100,
+                                "fill": "forwards"
+                            }
+                        }]
+                },
+                {
+                    "x": "0%",
+                    "y": "0%",
+                    "width": "100%",
+                    "height": "100%",
+                    "font": "italic bold 20px/30px Georgia, serif",
+                    "text": "de añadir lo que es la parte de abajo que pone contactos",
+                    "animations": [{
+                            "keyframes": [{
+                                    "opacity": "0.0"
+                                }, {
+                                    "opacity": "1.0"
+                                }],
+                            "timing": {
+                                "delay": 19300,
+                                "duration": 100,
+                                "fill": "forwards"
+                            }
+                        },
+                        {
+                            "keyframes": [{
+                                    "opacity": "1.0"
+                                }, {
+                                    "opacity": "0.0"
+                                }],
+                            "timing": {
+                                "delay": 4000,
+                                "duration": 100,
+                                "fill": "forwards"
+                            }
+                        }]
+
+                },
+                {
+                    "x": "0%",
+                    "y": "0%",
+                    "width": "100%",
+                    "height": "100%",
+                    "font": "italic bold 20px/30px Georgia, serif",
+                    "text": "qué es exactamente lo que se debe de introducir y cómo se dan de alta nuevos contactos",
+                    "animations": [
+                        {
+                            "keyframes": [{
+                                    "opacity": "0.0"
+                                }, {
+                                    "opacity": "1.0"
+                                }],
+                            "timing": {
+                                "delay": 24000,
+                                "duration": 100,
+                                "fill": "forwards"
+                            }
+                        },
+                        {
+                            "keyframes": [{
+                                    "opacity": "1.0"
+                                }, {
+                                    "opacity": "0.0"
+                                }],
+                            "timing": {
+                                "delay": 4000,
+                                "duration": 100,
+                                "fill": "forwards"
+                            }
+                        }]
+                }
+            ]
+        }
+    },
+    "videoreal": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-video-html5/vip-video-html5.html",
+        "etype": "vip-video-html5",
+        "muted": true,
+        "container": "layout",
+        "section": "mainHTML2",
+        "playbutton": "toggleplay2",
+        "progressid": "videotimeline2",
+        "scene": true,
+        "store": ["currentTime"],
+        "styles": {
+        },
+        "styleprops": {
+            "order": -1
+        },
+        "sources":
+                [
+                    {
+                        "src": "http://localhost/Vipsion/public/demo1/media/Alta_contacto.mp4",
+                        "type": "video/mp4"
+                    }],
+        "react":
+                [
+                    {
+                        "playbutton$_reactpressed && playbutton$_pressed":
+                                [{
+                                        "togglePlay": {
+                                        }
+                                    }]
+                    }
+                ],
+        "reactprop":
+                [
+                    {
+                        "currentTime": "chapters_timeChapter"
+                    },
+                    {
+                        "currentTime": "progressid$_setTime"
+                    }]
+
+
+    },
+    "toggleplay2":
+            {
+                "def": "http://localhost/Vipsion/public/bower_components/paper-fab/paper-fab.html",
+                "etype": "paper-fab",
+                "icon": "av:play-arrow",
+                "scene": true,
+                "container": "layout",
+                "section": "l_11",
+                "player": "videoenriquecido",
+                "react":
+                        [{
+                                "player$_reacttimeToPlay && player$_timeToPlay":
+                                        [{
+                                                "setProperty": {
+                                                    "icon": "'av:pause'"
+
+                                                }
+                                            }]
+                            },
+                            {
+                                "player$_reacttimeToPlay && player$_timeToPlay == false":
+                                        [{
+                                                "setProperty": {
+                                                    "icon": "'av:play-arrow'"
+
+                                                }
+                                            }]
+                            }
+                        ]
+
+            },
+    "timeline2":
+            {
+                "def": "http://localhost/Vipsion/public/bower_components/vip-video-timeline/vip-video-timeline.html",
+                "etype": "vip-video-timeline",
+                "synched": "videoenriquecido",
+                "scene": true,
+                "container": "layout",
+                "section": "l_11",
+                "reactprop":
+                        [{
+                                "duration": "synched$_duration"
+                            },
+                            {
+                                "currentTime": "synched$_setTime"
+                            },
+                            {
+                                "timeToPlay": "synched$_playback"
+                            }]
+
+            },
+    "videoenriquecido": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-video-html5/vip-video-html5.html",
+        "etype": "vip-video-html5",
+        "playbutton": "toggleplay2",
+        "progressid": "synched",
+        "scene": true,
+        "store": ["currentTime"],
+        "container": "layout",
+        "section": "l_122",
+        "inflate": "hidden",
+        "styleprops": {
+            "flex": "3 1 0px",
+            "order": -1
+        },
+        "styles": {
+        },
+        "sources":
+                [
+                    {
+                        "src": "http://localhost/Vipsion/public/demo1/media/Alta_contacto.mp4",
+                        "type": "video/mp4"
+                    }],
+        "svg": {
+            "synched": "videoenriquecido",
+            "texts": [{
+                    "x": "20%",
+                    "y": "65%",
+                    "text": "CONTACTOS PROFESIONALES",
+                    "font_size": "5px",
+                    "opacity": "0",
+                    "fill": "red",
+                    "animations": [{
+                            "keyframes": [{
+                                    "opacity": "0.0"
+                                }, {
+                                    "opacity": "1.0"
+                                }],
+                            "timing": {
+                                "delay": 26000,
+                                "duration": 1000,
+                                "fill": "forwards"
+                            }
+                        },
+                        {
+                            "keyframes": [{
+                                    "opacity": "1.0"
+                                }, {
+                                    "opacity": "0.0"
+                                }],
+                            "timing": {
+                                "delay": 13000,
+                                "duration": 1000,
+                                "fill": "forwards"
+                            }
+                        }]
+                }],
+            "rects": [{
+                    "x": "6%",
+                    "y": "13%",
+                    "fill": "none",
+                    "stroke": "yellow",
+                    "opacity": 0,
+                    "stroke_width": "2px",
+                    "animations": [
+                        {
+                            "keyframes": [
+                                {
+                                    "opacity": "0.0"
+                                },
+                                {
+                                    "opacity": "1.0"
+                                }],
+                            "timing": {
+                                "delay": 40000,
+                                "duration": 100,
+                                "fill": "forwards"
+                            }
+                        },
+                        {
+                            "keyframes": [
+                                {
+                                    "width": "0%",
+                                    "height": "0%"
+                                },
+                                {
+                                    "width": "42%",
+                                    "height": "15%"
+                                }],
+                            "timing": {
+                                "delay": 1000,
+                                "duration": 2000,
+                                "fill": "forwards"
+                            }
+                        }
+                    ]
+                }]
+        },
+        "anima":
+                [{
+                        "synched": "videoenriquecido",
+                        "name": "anima_videoenriquecido_rotation",
+                        "animations": [{
+                                "element": "shadow",
+                                "keyframes": [{
+                                        "transform": "rotateY(0deg)"
+                                    }, {
+                                        "transform": "rotateY(360deg)"
+                                    }],
+                                "timing": {
+                                    "delay": 2000,
+                                    "duration": 5000,
+                                    "iterations": 1,
+                                    "fill": "forwards"
+                                }
+                            },
+                            {
+                                "element": "container_video",
+                                "keyframes": [{
+                                        "transform": "scale(1)"
+                                    }, {
+                                        "transform": "scale(1.4)"
+                                    }],
+                                "timing": {
+                                    "delay": 7000,
+                                    "duration": 9000,
+                                    "iterations": 1
+                                }
+                            },
+                            {
+                                "element": "container_video",
+                                "keyframes": [{
+                                        "transform": "translate(0px) scale(1)"
+                                    }, {
+                                        "transform": "translate(15%, 20%) scale(1.4)"
+                                    }],
+                                "timing": {
+                                    "delay": 14000,
+                                    "duration": 1000,
+                                    "iterations": 1,
+                                    "fill": "forwards"
+                                }
+                            }
+                        ]
+                    }]
+        ,
+        "react":
+                [
+                    {
+                        "playbutton$_reactpressed && playbutton$_pressed":
+                                [{
+                                        "togglePlay": {
+                                        }
+                                    }]
+                    },
+                    {
+                        "question_finish":
+                                [
+                                    {
+                                        "pause": {}
+                                    }
+                                ]
+                    }
+                ],
+        "reactprop":
+                [
+                    {
+                        "currentTime": "chapters_timeChapter"
+                    },
+                    {
+                        "currentTime": "progressid$_setTime"
+                    }]
+
+    },
+   
+    "curtain": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-object/vip-object.html",
+        "etype": "vip-object",
+        "fit": true,
+        "scene": true,
+        "childcomponents": ["&lt;em id=left&gt;&lt;/em&gt", "&lt;em id=right&gt;&lt;/em&gt"],
+        "container": "videoenriquecido",
+        "styleprops": {
+        },
+        "anima": [{
+                "name": "anima_curtains",
+                "auto": true,
+                "animations": [{
+                        "element": "curtain_0",
+                        "keyframes": [{
+                                "transform": "rotate(0deg)",
+                                "width": "61%",
+                                "background-size": "80px"
+                            }, {
+                                "transform": "rotate(15deg)",
+                                "width": "0%",
+                                "background-size": "1px"
+                            }
+                            ],
+                        "timing": {
+                            "duration": 4000,
+                            "fill": "forwards"
+                            
+                        }
+                    },
+                    {
+                        "element": "curtain_1",
+                        "keyframes": [{
+                                "transform": "rotate(0deg)",
+                                "width": "61%",
+                                "background-size": "80px"
+                            }, {
+                                "transform": "rotate(-15deg)",
+                                "width": "0%",
+                                "background-size": "1px"
+                            }],
+                        "timing": {
+                            "duration": 4000,
+                            "fill": "forwards"
+                            
+                        }
+                    }
+                    ]
+            }]
+    }
+}

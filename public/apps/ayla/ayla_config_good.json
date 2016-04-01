@@ -1,0 +1,379 @@
+[
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-header-panel/paper-header-panel.html",
+        "etype": "paper-header-panel",
+        "id": "coreheaderpanel",
+        "mode": "waterfall",
+        "toggles": true,
+        "scene": true,
+        "classes": ["layout", "vertical"],
+        "customStyles": {
+            "--paper-header-panel-waterfall-container": "display: flex"
+        }
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-layout/vip-layout.html",
+        "etype": "vip-layout",
+        "id": "lay",
+        "scene": false,
+        "layout":
+                [
+                    {
+                        "id": "aylalay",
+                        "name": "aylalay",
+                        "container": "apppages",
+                        "styleProps": [{
+                                "selector": "#aylalay",
+                                "display": "flex",
+                                "flex-flow": "row",
+                                "color": "green",
+                                "flex": "1 1 0px"
+                            }],
+                        "children":
+                                [
+                                    {
+                                        "id": "main2",
+                                        "name": "main2",
+                                        "container": "aylalay",
+                                        "styleProps": [{
+                                                "selector": "#main2",
+                                                "display": "flex",
+                                                "flex-flow": "column",
+                                                "color": "blue",
+                                                "flex": "1 0 0px",
+                                                "order": 50
+                                            }],
+                                        "children": []
+                                    }, {
+                                        "id": "main3",
+                                        "name": "main3",
+                                        "container": "aylalay",
+                                        "styleProps": [{
+                                                "selector": "#main3",
+                                                "display": "flex",
+                                                "flex-flow": "row",
+                                                "color": "red",
+                                                "flex": "1 0 0px"
+                                            }],
+                                        "children": []
+                                    },
+                                    {
+                                        "id": "main4",
+                                        "name": "main4",
+                                        "container": "aylalay",
+                                        "styleProps": [{
+                                                "selector": "#main4",
+                                                "order": 30,
+                                                "display": "flex",
+                                                "flex-flow": "column",
+                                                "flex": "none",
+                                                "justify-content": "center",
+                                                "align-items": "center",
+                                                "color": "brown"
+                                            }],
+                                        "children": []
+                                    }
+                                ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "top2",
+                        "container": "apppages",
+                        "children": [
+                            {
+                                "id": 4,
+                                "name": "mid2",
+                                "container": "top2",
+                                "children": []
+                            }
+                        ]
+                    }]
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-toolbar/paper-toolbar.html",
+        "etype": "paper-toolbar",
+        "id": "toolbar",
+        "container": "coreheaderpanel",
+        "classes": ["core-header"],
+        "scene": true,
+        "test": "if (x > 0) { return (val$ = x + 2)}",
+        "anima": [{
+                "element": "title",
+                "react": [
+                    {
+                        "when": "videosintelhtml5.onreact_playOn",
+                        "then": [{
+                                "play": {
+                                }
+                            }]
+                    },
+                    {
+                        "when": "videosintelhtml5.onreact_playOn",
+                        "if": "!val$",
+                        "then": [{
+                                "pause": {
+                                }
+                            }]
+                    }],
+                "keyframes": [{
+                        "opacity": "0.1",
+                        "color": "#FF6F00",
+                        "transform": "scale(0.9)"
+                    }, {
+                        "opacity": "1.0",
+                        "color": "#BF360C",
+                        "transform": "scale(1)"
+                    }],
+                "timing": {
+                    "direction": "alternate",
+                    "duration": 2000,
+                    "iterations": 10
+                }
+            }],
+        "childComponents": ["<h1 id=\"title\">Ayla<\/h1>"],
+        "styleprops": {
+        }
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/iron-pages/iron-pages.html",
+        "etype": "iron-pages",
+        "id": "apppages",
+        "scene": true,
+        "classes": ["layout", "horizontal", "flex"],
+        "selected": "aylalay",
+        "container": "coreheaderpanel",
+        "attrForSelected": "appname"
+
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-time-digital/vip-time-digital.html",
+        "etype": "vip-time-digital",
+        "id": "timedigital",
+        "synched": "videosintelhtml5",
+        "container": "main4",
+        "scene": true,
+        "classes": ["flex-none", "order-1"],
+        "anima":
+                [{
+                        "synched": "videosintelhtml5",
+                        "at": 3,
+                        "then": [{
+                                "fire":
+                                        {
+                                            "eventType": "showcontrols",
+                                            "detail":
+                                                    {
+                                                        "data1": "timedigital.scene"
+                                                    }
+                                        }
+                            }]
+                    }]
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-message-panel/vip-message-panel.html",
+        "etype": "vip-message-panel",
+        "id": "messagepanel",
+        "scene": true,
+        "container": "main3",
+        "cursor": [{
+                "when": "react_button_active",
+                "if": "val$",
+                "prop": "dataMessages",
+                "synchedProp": "synchedDataMessages",
+                "collection": "ChatMessages",
+                "synched": "videosintelhtml5",
+                "selector": "this.is_visible == false"
+            }],
+        "dataSourceJson": [{
+                "collection": "ChatMessages",
+                "data": [{
+                        "message": "Hola",
+                        "tentry": 1,
+                        "texit": 2,
+                        "is_visible": false
+                    },
+                    {
+                        "message": "Adios",
+                        "tentry": 1,
+                        "texit": 5,
+                        "is_visible": true
+                    },
+                    {
+                        "message": "Hola",
+                        "tentry": 1,
+                        "texit": 3,
+                        "is_visible": true
+                    }]
+
+            }],
+        "react": [{
+                "when": "messagepanel.react_synchedDataMessages",
+                "then": [{
+                        "setProperty": {
+                            "properties":
+                                    {
+                                        "messages": "val$"
+                                    },
+                            "sourceProp": "synchedDataMessages",
+                            "sourceElem": "messagepanel"
+                        }
+                    }]
+            }]
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-timeline/vip-timeline.html",
+        "etype": "vip-timeline",
+        "id": "timeline",
+        "synched": "videosintelhtml5",
+        "container": "main4",
+        "scene": true,
+        "classes": ["flex-4", "order-2"],
+        "newProps": ["synched"]
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-fab/paper-fab.html",
+        "etype": "paper-fab",
+        "id": "toggleplay",
+        "icon": "av:play-arrow",
+        "container": "main4",
+        "scene": true,
+        "toggles": true,
+        "synched": "videosintelhtml5",
+        "newProps": ["synched"],
+        "classes": ["flex-none"],
+        "react":
+                [
+                    {
+                        "when": "synched$.react_playOn",
+                        "map": [["val$", "'av:pause'"], ["!val$", "'av:play-arrow'"]],
+                        "then": [{
+                                "setProperty": {
+                                    "properties": {
+                                        "icon": "val$"
+                                    }
+
+                                }
+                            }]
+                    }]
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/iron-image/iron-image.html",
+        "etype": "iron-image",
+        "id": "image",
+        "scene": true,
+        "sizing": "contain",
+        "fade": true,
+        "classes": ["flex"],
+        "src": "http://lorempixel.com/600/400",
+        "container": "main2"
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/employee-list/employee-list.html",
+        "etype": "employee-list",
+        "id": "employee-list",
+        "container": "main3"
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-video-html5/vip-video-html5.html",
+        "etype": "vip-video-html5",
+        "id": "videosintelhtml5",
+        "controls": true,
+        "controlTimeline": "timeline",
+        "controlOnOff": "toggleplay",
+        "container": "main3",
+        "store": ["currentTime"],
+        "anima":
+                [{
+                        "synched": "videosintelhtml5",
+                        "local": true,
+                        "keyframes": [{
+                                "transform": "rotateY(0deg)"
+                            }, {
+                                "transform": "rotateY(360deg)"
+                            }],
+                        "timing": {
+                            "delay": 1000,
+                            "duration": 2000,
+                            "iterations": 1
+
+                        }
+                    }
+                ],
+        "cursor": [
+            {
+                "collection": "Videos",
+                "prop": "videos2"
+            }
+        ],
+        "react": [
+            {
+                "when": "videosintelhtml5.react_videos2",
+                "then": [{
+                        "setProperty": {
+                            "properties":
+                                    {
+                                        "videoList": "val$"
+                                    },
+                            "sourceElem": "videosintelhtml5",
+                            "sourceProp": "videos2"
+
+                        }
+                    }]
+            }]
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-video-youtube/vip-video-youtube.html",
+        "etype": "vip-video-youtube",
+        "id": "videosintel",
+        "controlOnOff": "toggleplay",
+        "controls": true,
+        "draggable": true,
+        "scene": true,
+        "store": ["currentTime", "autoplay"],
+        "container": "main2",
+        "vid": "LSHLg4hEVZ8",
+        "styleprops": {
+            "flex": "4 1 0px"
+        },
+        "anima":
+                [{
+                        "synched": "videosintel",
+                        "local": true,
+                        "element": "vidshadow",
+                        "keyframes": [{
+                                "transform": "rotateY(0deg)"
+                            }, {
+                                "transform": "rotateY(360deg)"
+                            }],
+                        "timing": {
+                            "delay": 6000,
+                            "duration": 5000,
+                            "iterations": 1,
+                            "direction": "alternate"
+                        }
+                    }
+                ]
+
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-login/vip-login.html",
+        "etype": "vip-login",
+        "id": "logging",
+        "scene": true,
+        "container": "toolbar",
+        "classes": ["huge"],
+        "title": "Login"
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/google-signin/google-signin.html",
+        "etype": "google-signin",
+        "id": "signin",
+        "scene": true,
+        "labelSignin": "Entra en Ayla",
+        "labelSignout": "Salir",
+        "scopes": "profile",
+        "container": "toolbar",
+        "clientId": "308612886182-s33e07uhrlt8g32oeshf1o1h9663c1fs.apps.googleusercontent.com"
+    }
+
+]

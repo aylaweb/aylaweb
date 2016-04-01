@@ -1,0 +1,9 @@
+Meteor.startup(function() {
+});
+Meteor.publish('appPub', function(appName) {
+    return ElemRep.find({owner: this.userId, app: appName});
+});
+Meteor.publish('appOwns', function() {
+    return ElemRep.find({etype: "vip-app", owner: this.userId});
+});
+		      

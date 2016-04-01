@@ -1,0 +1,579 @@
+<link rel="import"
+      href="http://localhost/Vipsion/public/bower_components/core-style/core-style.html">
+<script>
+    CoreStyle.g.vars = {
+        primary_color_one: '#ffc107', //Amber 500   
+        primary_color_two: '#ff6f00', //Amber 900
+        primary_color_three: '#ffecb3', //Amber 100
+        primary_color_four: '#fff8e1', //Amber 50
+        label_color_one: '#3e2723', //Brown 900
+        ripple_color_one: '#fff8e1', //Amber 05
+        hover_color_one: '#ffb300', //Amber 700
+        highlight_color_one: '#e65100', //Orange 900
+        max_height_1: '762px', //Orange 900
+        max_width_1: '1400px', //Orange 900
+        min_height_1: '330px', //Orange 900
+        min_width_1: '600px', //Orange 900
+        max_height_2: '500px', //Orange 900
+        max_width_2: '672px' //Orange 900
+    };
+    CoreStyle.g.theme = {
+        // Button variables
+        btn_font_weight: 'bold',
+        btn_bg: CoreStyle.g.vars.primary_color_one,
+        btn_color: CoreStyle.g.vars.label_color_one,
+        btn_ripple: CoreStyle.g.vars.ripple_color_one,
+        btn_hover: CoreStyle.g.vars.hover_color_one,
+        btn_active: CoreStyle.g.vars.highlight_color_one,
+        // Header-panel variables
+        hpanel_bg: CoreStyle.g.vars.primary_color_four,
+        //Toolbar variables
+        tbar_bg: CoreStyle.g.vars.primary_color_one,
+        //tabs variables
+        tabs_bar_bg: CoreStyle.g.vars.highlight_color_one,
+        tabs_bg: CoreStyle.g.vars.primary_color_one,
+        //icon-button
+        icon_bg: CoreStyle.g.vars.primary_color_one,
+        //menu-button
+        menu_bg: CoreStyle.g.vars.primary_color_one,
+        //fab button
+        fab_bg: CoreStyle.g.vars.primary_color_one,
+        //toggle button
+        tog_bg: CoreStyle.g.vars.primary_color_one,
+        tog_chk: CoreStyle.g.vars.highlight_color_one,
+        tog_unchk: CoreStyle.g.vars.highlight_color_one,
+        tog_bar_chk: CoreStyle.g.vars.highlight_color_one,
+        tog_bar_unchk: CoreStyle.g.vars.highlight_color_one,
+        tog_color: CoreStyle.g.vars.label_color_one,
+        //radio button
+        btr_bg: CoreStyle.g.vars.primary_color_four,
+        btr_chk: CoreStyle.g.vars.highlight_color_one,
+        btr_unchk: CoreStyle.g.vars.highlight_color_one,
+        btr_color: CoreStyle.g.vars.label_color_one,
+        //button radio group
+        btrg_bg: CoreStyle.g.vars.primary_color_four,
+        //checkbox button
+        chkb_bg: CoreStyle.g.vars.primary_color_four,
+        chkb_chk: CoreStyle.g.vars.highlight_color_one,
+        chkb_unchk: CoreStyle.g.vars.highlight_color_one,
+        // item
+        item_bg: CoreStyle.g.vars.primary_color_one,
+        //column1 height
+        video_max_height: CoreStyle.g.vars.max_height_1,
+        video_max_width: CoreStyle.g.vars.max_width_1,
+        video_min_height: CoreStyle.g.vars.min_height_1,
+        video_min_width: CoreStyle.g.vars.min_width_1,
+        //pdf
+        pdf_max_height: CoreStyle.g.vars.max_height_2,
+        pdf_max_width: CoreStyle.g.vars.max_width_2
+    }
+</script>
+
+<core-style id="vip-object">  
+   
+    ::content #curtain_0, ::content #curtain_1{
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: -30px;
+    bottom: -30px;
+    width: 61%;
+    transition: all 4s ease-out;
+    transform: rotate(0deg);
+    background-color: #A90505;
+    background-image: linear-gradient(90deg,  transparent 10%, rgba(255,255,255,.25) 50% ,transparent 65% );
+    background-repeat: repeat;
+    box-shadow: 0 0 10px #555 ,inset 0 -60px  60px -30px  rgba(255,255,255, 0.5), inset 0 90px  60px -30px  rgba(0,0,0, 0.5);
+    background-size: 80px;
+    }
+    ::content #curtain_0 { left: -10% }
+
+    ::content #curtain_1 { right: -10% }
+    
+    :host(#curtain) #container_object:hover ::content #curtain_0, :host(#curtain) #container_object:hover ::content #curtain_1 {
+    width: 0;
+    background-size: 1px;
+    transition: all 4s ease;
+    transform: rotate(15deg);
+}
+
+:host(#curtain) #container_object:hover ::content #curtain_1 {
+    transition: all 4s ease;
+    transform: rotate(-15deg);
+}
+</core-style>
+
+<core-style id="core-header-panel">
+    :host {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    }
+
+    #outerContainer {
+    background: {{g.theme.hpanel_bg}};
+    }
+
+    #mainContainer {
+    display: flex;
+    justify-content: space-around;
+    overflow: scroll;
+    }
+</core-style>
+
+<core-style id="core-toolbar">
+    :host {
+    min-width: 100%  !important;
+    background: {{g.theme.tbar_bg}}  !important;
+    }
+    #container_toolbar
+    {
+    display: flex  !important;
+    }
+</core-style>
+
+<core-style id="core-animated-pages">
+    :host {
+    flex: auto;
+    min-width: 100%  !important;
+    background: {{g.theme.tbar_bg}}  !important;
+    } 
+</core-style>
+
+<core-style id="paper-tabs">
+
+    :host {
+    background: {{g.theme.tabs_bg}};
+    }
+
+    #selectionBar {
+    background-color: {{g.theme.tabs_bar_bg}};
+    }
+
+</core-style>
+
+<core-style id="paper-button">
+    :host {
+    flex: none;
+
+    color: {{g.theme.btn_color}};
+    font-weight: {{g.theme.btn_font_weight}};
+    background: {{g.theme.btn_bg}};
+    }
+
+    :host([raisedbutton]) {
+    background: {{g.theme.btn_bg}};
+    }
+
+    :host([active]) {
+    background: {{g.theme.btn_active}};
+    }
+
+    :host([raisedbutton]:hover) {
+    background: {{g.theme.btn_hover}};
+    }
+
+    ::content #ripple {
+    color: {{g.theme.btn_ripple}};
+    }
+
+</core-style>
+
+<core-style id="paper-icon-button">
+    :host {
+    flex: none;
+    color: {{g.theme.btn_color}};
+    font-weight: {{g.theme.btn_font_weight}};
+    background: {{g.theme.btn_bg}};
+
+    }
+
+    :host([raisedbutton]) {
+    background: {{g.theme.icon_bg}};
+    }
+
+    :host([active]) {
+    background: {{g.theme.btn_active}};
+    }
+
+    :host([raisedbutton]:hover) {
+    background: {{g.theme.btn_hover}};
+    }
+
+    ::content #ripple {
+    color: {{g.theme.btn_ripple}};
+    }
+
+
+
+</core-style>
+
+<core-style id="paper-checkbox">
+    :host{
+    background: {{g.theme.chkb_bg}};
+    }
+
+    #ink[checked] {
+    color: {{g.theme.chkb_chk}};
+    }
+
+    #checkbox.checked {
+    border-color: {{g.theme.chkb_chk}};
+    }
+
+    #ink {
+    color: {{g.theme.chkb_unchk}};
+    }
+
+    #checkbox {
+    border-color: {{g.theme.chkb_unchk}};
+    }
+
+</core-style>
+
+<core-style id="paper-item">
+    :host{
+    background: {{g.theme.item_bg}}; 
+    }
+
+</core-style>
+
+<core-style id="paper-menu-button">
+    :host{
+    background: {{g.theme.menu_bg}};
+    }
+
+    ::content #overlay {
+    background: {{g.theme.menu_bg}};
+    }
+
+</core-style>
+
+<core-style id="paper-fab">
+    :host{    
+    background: {{g.theme.fab_bg}};
+    }
+</core-style>
+
+<core-style id="paper-toggle-button">
+    :host{
+    background: {{g.theme.tog_bg}};
+    }
+
+    paper-radio-button::shadow #ink[checked] {
+    color: {{g.theme.tog_chk}};
+    }
+    paper-radio-button::shadow #onRadio {
+    background: {{g.theme.tog_chk}};
+    }
+
+    #toggleBar[checked] {
+    background-color: {{g.theme.tog_bar_chk}};
+    }
+
+    paper-radio-button::shadow #ink {
+    color: {{g.theme.tog_unchk}};
+    }
+
+    paper-radio-button::shadow #offRadio {
+    border-color: {{g.theme.tog_unchk}};
+    }
+
+    #toggleBar {
+    background-color: {{g.theme.tog_bar_unchk}};
+    }
+</core-style>
+
+<core-style id="paper-radio-group">
+    :host{
+    background: {{g.theme.btrg_bg}};
+    }
+    #container_radio_group{
+
+    }
+    #label{
+    margin: 30px;
+    }
+</core-style>
+
+<core-style id="vip-question-radio-group">
+    :host{
+    flex: auto;
+    font-family:'Times New Roman';
+    text-align: left;
+    color: rgb(251, 140, 0);
+    border-image-source: none;
+    border-color: rgb(251, 140, 0);
+    background-image: none;
+    font-size: 25px;
+    }
+
+    #container_question_radio_group{
+    display: flex;
+    flex-flow: column nowrap;
+    font-family: Arial, sans-serif;
+    line-height: 1.5em;
+    background: transparent;
+    }
+
+    #container_question_radio_group .answers {
+    list-style: none;
+    margin: 0 0.5em;
+    padding: 0;
+    overflow: visible;
+    }
+
+    #container_question_radio_group .answer {
+    list-style: none;
+    margin: 0.5em 0;
+    padding: 0;
+    background: none;
+    position: relative;
+    }
+
+    #container_question_radio_group .answer {
+    margin-bottom: 0;
+    }
+
+
+    #label{
+    margin: 20px;
+    }
+    .radiobutton{
+    margin: 10px;
+    }   
+
+    #buttons{
+    margin-top: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    }
+
+    #check {
+    flex: none;
+    margin-right: 20px;
+    font-size: 0.75em;
+    }
+
+    #reset {
+    flex: none;
+    margin-left: auto;
+    font-size: 0.75em;
+    }
+
+</core-style>
+
+<core-style id="paper-radio-button">
+    :host{
+    background: {{g.theme.btr_bg}};
+    flex: none;
+    }
+
+    #ink[checked] {
+    color: {{g.theme.btr_chk}};
+    }
+    #onRadio {
+    background: {{g.theme.btr_chk}};
+    }
+
+    #ink {
+    color: {{g.theme.btr_unchk}};
+    }
+
+    #offRadio {
+    border-color: {{g.theme.btr_unchk}};
+    }
+</core-style>
+
+<core-style id="paper-input">
+    :host{
+    background: {{g.theme.colorOne}};
+    }
+</core-style>
+
+
+<core-style id="vip-html">
+    :host{
+    display: flex;
+    flex: none;
+    margin-left: 20px;
+    font-family:'Times New Roman';
+    text-align: left;
+    color: rgb(251, 140, 0);
+    border-image-source: none;
+    border-color: rgb(251, 140, 0);
+    background-image: none;
+    font-size: 25px;
+    }
+
+    #container_html{
+
+    }
+</core-style>
+
+<core-style id="vip-label">
+    :host{
+    display: flex;
+    flex: none;
+    font-family:'Times New Roman';
+    text-align: left;
+    color: rgb(251, 140, 0);
+    border-image-source: none;
+    border-color: rgb(251, 140, 0);
+    background-image: none;
+    font-size: 25px;
+    }
+</core-style>
+
+<core-style id="vip-panel">
+    :host{
+    min-width: 100%;
+    flex: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    }
+
+
+    #container_panel {
+    flex: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    }
+</core-style>
+
+
+<core-style id="vip-carousel">
+    :host{
+    margin: 20px;
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+    flex: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    }
+
+    #buttons_dir{
+    display: flex;
+    flex-flow: row nowrap;
+    }
+
+    #forward{
+    margin-left: auto;
+    }
+
+    #container_carousel {
+    flex: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    }
+
+    #animated {
+    position: static;
+    }
+</core-style>
+
+<core-style id="vip-svg">
+    :host {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    } 
+    #svg {
+    width: 100%;
+    height: 100%;
+    }
+
+</core-style>
+
+
+<core-style id="vip-video-timeline">
+</core-style>
+
+<core-style id="vip-video-html5">
+    :host{
+    //  max-width: {{g.theme.video_max_width}};
+    //  min-width: {{g.theme.video_min_width}};
+    }
+</core-style>
+<core-style id="basic-sequence">
+    :host{
+    flex: 1 1 0;
+    position: relative;
+    max-width: {{g.theme.video_max_width}};
+    min-width: {{g.theme.video_min_width}};
+    overflow: hidden;
+    }
+</core-style>
+<core-style id="basic-carousel">
+    :host{
+    flex: 1 1 0;
+    position: relative;
+    max-width: {{g.theme.video_max_width}};
+    min-width: {{g.theme.video_min_width}};
+    overflow: hidden;
+    }
+</core-style>
+<core-style id="vip-video-youtube">
+    :host{
+    //  max-width: {{g.theme.video_max_width}};
+    // min-width: {{g.theme.video_min_width}};
+    }
+</core-style>
+<core-style id="core-drawer-panel">  
+    :host ::content #navicon {
+    display: none;
+    }
+
+    :host([narrow]) ::content #navicon {
+    display: block;
+    }
+</core-style>
+
+<core-style id="google-signin">  
+    :host {
+    flex: none; 
+    }
+</core-style>
+
+<core-style id="google-hangout-button">  
+    :host {
+    flex: none; 
+    }
+</core-style>
+
+<core-style id="vip-login">  
+    paper-shadow {
+    border-radius: 50px; 
+    }
+    ::content paper-input-decorator{
+    display: block;
+    }
+    h1 {
+    display: inline;
+    }
+    paper-icon-button #cancel{
+    margin-left: 30px;
+    }
+
+    :host(.huge) paper-icon-button::shadow #icon {
+    width: 50px;
+    height: 50px;
+    }
+
+</core-style>
+
+<core-style id="core-icon">  
+    :host {
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    fill: currentcolor;
+    position: relative;
+    height: 24px;
+    width: 24px;
+    }
+</core-style>

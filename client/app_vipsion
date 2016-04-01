@@ -1,0 +1,18 @@
+    <head>
+        <title></title>
+        <script src="http://www.vipsion.com:300http://localhost/Vipsion/public0/bower_components/webcomponentsjs/webcomponents.js"></script>
+        <link rel="import" href="http://www.vipsion.com/bower_components/vip-app/vip-app.html"> 
+        <style>
+          body {
+             display: flex;
+             flex_direction: row;
+             align-items: stretch;
+             margin: 0;
+             height: 100vh;
+}
+</style> 
+    </head>
+    <body>
+    <vip-app id="app" url="http://www.vipsion.com/demo1/main_HTML_Meteor.json"></vip-app>
+</body>
+

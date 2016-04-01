@@ -1,0 +1,38 @@
+[
+   {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-video-html5/vip-video-html5.html",
+        "etype": "vip-video-html5",
+        "id": "butterfly",
+        "videoId": "butterflyVideo",
+      
+        "sources": [
+            {
+                "src": "http://localhost/Vipsion/public/apps/ayla/media/mov_bbb.mp4",
+                "type": "video/mp4"
+            }]
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-video-html5/vip-video-html5.html",
+        "etype": "vip-video-html5",
+        "id": "sintelhtml5",
+        "videoId": "sintelVideo",
+        "sources": [{
+                "src": "http://media.w3.org/2010/05/sintel/trailer.mp4",
+                "type": "video/mp4"
+            }]
+
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-video-html5/vip-video-html5.html",
+        "etype": "vip-video-html5",
+        "id": "educamadrid",      
+        "videoId": "educamadridVideo",
+        "sources": [{
+                "src": "http://mediateca.educa.madrid.org/streaming.php?id=amndw5az5knyhzdx",
+                "type": "video/mp4"
+            }]
+
+    }
+
+
+]

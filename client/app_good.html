@@ -1,0 +1,71 @@
+<head>
+    <title></title>
+
+    <style>
+        body {
+             display: flex;
+            // align-items: stretch;
+            margin: 0;
+            height: 100vh;
+            font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+    </style> 
+</head>
+<body>
+</body>
+<template name='Home'>
+    <script src="http://www.vipsion.com:3000/bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="http://www.vipsion.com:3000/bower_components/vip-loader/vip-loader.html"> 
+    <vip-loader url="http://www.vipsion.com:3000/videodemo/videodemo.json"></vip-loader>
+</template>
+<template name='Dev2'>
+    <script src="http://localhost/Vipsion/public/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="http://localhost/Vipsion/public/bower_components/vip-loader/vip-loader-dev.html"> 
+    <!-- <vip-loader url="http://localhost/Vipsion/public/ayla/ayla.json?forcedbyurl"></vip-loader> -->
+    <vip-loader url="http://localhost/Vipsion/public/ayla/ayla.json" load-server></vip-loader> 
+</template>
+<template name='Dev'>
+    <script src="http://localhost/Vipsion/public/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="http://localhost/Vipsion/public/bower_components/vip-app/vip-app.html">
+    <vip-app  theme = 'http://localhost/Vipsion/public/ayla/theme/aylatheme.html' id='ayla'
+              data-source-ajax = '[{
+              "collection": "Elements",
+              "url": "http://localhost/Vipsion/public/ayla/ayla_config.json"}]'
+              cursor = '[
+              {
+              "collection": "Elements",
+              "prop": "elements"
+              }
+              ]'
+              react = '[{
+              "when": "ayla.react_elements",
+              "then": [{
+              "setProperty": {
+              "properties":
+              {
+              "appElems": "val$"
+              },
+              "sourceElem": "ayla",
+              "sourceProp": "elements"
+              }
+              }]
+              }]'
+              data-source-meteor = '[{
+              "serverCollection": "videos",
+              "localCollection": "Videos",
+              "publication": "videos"
+              }]'></vip-app> 
+</template>
+<template name='Local'>
+    <script src="http://www.vipsion.com:3000/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="http://www.vipsion.com:3000/bower_components/vip-loader/vip-loader.html"> 
+    <vip-loader url="http://www.vipsion.com:3000/videodemo/videodemoserver.json"></vip-loader>
+</template>
+<!--<template name='Local'>
+    <script src="http://localhost/Vipsion/public/bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="http://localhost/Vipsion/public/bower_components/vip-loader/vip-loader.html"> 
+    <vip-loader url="http://localhost/Vipsion/public/ayla/ayla.json" forcedbyurl></vip-loader>
+</template>-->
+<template name='Copyright'>
+    <vip-loader url="http://localhost/Vipsion/public/ayla/ayla.json" forcedbyurl selected="copyright"></vip-loader>
+</template>

@@ -1,0 +1,23 @@
+{
+    "ayla": {
+        "etype": "vip-app",
+        "apps": [],
+        "themeURL": "http://localhost/Vipsion/public/ayla/theme/aylatheme.html"
+        
+    },
+    "coreheaderpanel": {
+        "def": "http://localhost/Vipsion/public/bower_components/core-header-panel/core-header-panel.html",
+        "etype": "core-header-panel",
+        "mode": "waterfall",
+        "scene": true,
+        "container": "ayla",
+        "attribs": {
+            "mode": "waterfall",
+            "main": "true"
+        },
+        "styleprops": {
+            "flex": "auto"
+        }
+
+    }   
+}

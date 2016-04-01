@@ -1,0 +1,26 @@
+    <head>
+        <title></title>
+<!--        <script src="http://localhost/Vipsion/public/bower_components/webcomponentsjs/webcomponents.min.js"></script> -->
+        <script src="http://www.vipsion.com:8080/bower_components/webcomponentsjs/webcomponents.js"></script> 
+<!--        <link rel="import" href="http://localhost/Vipsion/public/demo1/theme1.html"> -->
+        <link rel="import" href="http://www.vipsion.com:8080/demo1/theme1.html">
+<!--        <link rel="import" href="http://localhost/Vipsion/public/bower_components/vip-loader/vip-loader.html"> -->  
+         <link rel="import" href="http://www.vipsion.com:8080/bower_components/vip-loader/vip-loader.html"> 
+         <style>
+          body {
+             display: flex;
+             align-items: stretch;
+             margin: 0;
+             height: 100vh;
+}
+</style> 
+    </head>
+    <body>
+
+</body>
+<template name='Home'>
+<vip-loader url="http://www.vipsion.com:8080/demo1/main_HTMLRemote.json" forcedbyurl></vip-loader>
+</template>
+<template name='Local'>
+<vip-loader url="http://localhost/Vipsion/public/demo1/main_HTML.json" forcedbyurl></vip-loader>
+</template>

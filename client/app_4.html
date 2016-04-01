@@ -1,0 +1,157 @@
+<head>
+    <title></title>
+
+    <style>
+        body {
+            display: flex;
+            // align-items: stretch;
+            margin: 0;
+            height: 100vh;
+            font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+    </style> 
+</head>
+<body>
+</body>
+
+<template name='Dev'>
+    <script src="http://localhost/Ayla/public/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="http://localhost/Ayla/public/bower_components/ayla/ayla.html">
+    <link rel="import" href="http://localhost/Ayla/public/bower_components/polymer/polymer.html">
+    <link rel="import" href="http://localhost/Ayla/public/bower_components/vip-app/vip-app.html">
+    <link rel="import" href="http://localhost/Ayla/public/bower_components/vip-loader/vip-loader.html">
+    <vip-app  theme = "http://localhost/Ayla/public/apps/ayla/theme/aylatheme.html" id="ayla">
+        <vip-loader></vip-loader>
+    </vip-app>
+    <script>
+        window.addEventListener('HTMLImportsLoaded', function (e) {
+            var ayla = document.querySelector('#ayla');
+             ayla.dataSourceAjax = [{
+                    data: {appId: "ayla"},
+                    localCollection: "ElemRep",
+                    url: "http://localhost/Ayla/public/apps/ayla/ayla_config.json"
+                }]; 
+         /*   ayla.dataSourceMeteor = [{
+                    selector: {appId: "myayla"},
+                    publication: "appElements"
+                }]; */
+            ayla.injections = [{
+                    collection: "ElemRep",
+                    selector: "this.appId == 'ayla'",
+                    prop: "appElems"}];
+           
+        /*    ayla.dataSourceJson = [{
+                    collection: "Videos",
+                    data: [{
+                            videoId: "butterfly",
+                            type: "video/mp4",
+                            sources: [
+                                {
+                                    src: "http://localhost/Ayla/public/ayla/media/mov_bbb.mp4",
+                                    type: "video/mp4"
+                                }],
+                            startTime: 2,
+                            endTime: 8
+                        },
+                        {
+                            videoId: "joomla",
+                            type: "video/mp4",
+                            sources: [{
+                                    src: "http://localhost/Ayla/public/ayla/media/joomla.mp4",
+                                    type: "video/mp4"
+                                }]
+                        },
+                        {
+                            videoId: "sintel",
+                            type: "video/mp4",
+                            sources: [{
+                                    src: "http://media.w3.org/2010/05/sintel/trailer.mp4",
+                                    type: "video/mp4"
+                                }]
+                        },
+                        {
+                            videoId: "yoda",
+                            type: "video/youtube",
+                            vid: "mJzbqdMrekU",
+                        },
+                        {
+                            videoId: "sintelyoutube",
+                            type: "video/youtube",
+                            vid: "LSHLg4hEVZ8",
+                        }
+                    ]
+                }]; */
+
+        });</script>
+</template>
+
+<template name='Server'>
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="/bower_components/ayla/ayla.html">
+    <link rel="import" href="/bower_components/polymer/polymer.html">
+    <link rel="import" href="/bower_components/vip-app/vip-app.html">
+    <link rel="import" href="/bower_components/vip-loader/vip-loader.html">
+    <vip-app  theme = "/apps/ayla/theme/aylatheme.html" id="ayla">
+        <vip-loader></vip-loader>
+    </vip-app>
+    <script>
+        window.addEventListener('HTMLImportsLoaded', function (e) {
+            var ayla = document.querySelector('#ayla');
+             ayla.dataSourceAjax = [{
+                    data: {appId: "ayla"},
+                    localCollection: "ElemRep",
+                    url: "/apps/ayla/ayla_config_ser.json"
+                }]; 
+         /*   ayla.dataSourceMeteor = [{
+                    selector: {appId: "myayla"},
+                    publication: "appElements"
+                }]; */
+            ayla.injections = [{
+                    collection: "ElemRep",
+                    selector: "this.appId == 'ayla'",
+                    prop: "appElems"}];
+           
+        /*    ayla.dataSourceJson = [{
+                    collection: "Videos",
+                    data: [{
+                            videoId: "butterfly",
+                            type: "video/mp4",
+                            sources: [
+                                {
+                                    src: "http://localhost/Ayla/public/ayla/media/mov_bbb.mp4",
+                                    type: "video/mp4"
+                                }],
+                            startTime: 2,
+                            endTime: 8
+                        },
+                        {
+                            videoId: "joomla",
+                            type: "video/mp4",
+                            sources: [{
+                                    src: "http://localhost/Ayla/public/ayla/media/joomla.mp4",
+                                    type: "video/mp4"
+                                }]
+                        },
+                        {
+                            videoId: "sintel",
+                            type: "video/mp4",
+                            sources: [{
+                                    src: "http://media.w3.org/2010/05/sintel/trailer.mp4",
+                                    type: "video/mp4"
+                                }]
+                        },
+                        {
+                            videoId: "yoda",
+                            type: "video/youtube",
+                            vid: "mJzbqdMrekU",
+                        },
+                        {
+                            videoId: "sintelyoutube",
+                            type: "video/youtube",
+                            vid: "LSHLg4hEVZ8",
+                        }
+                    ]
+                }]; */
+
+        });</script>
+</template>

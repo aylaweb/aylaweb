@@ -1,0 +1,763 @@
+{
+    "ayla": {
+        "etype": "vip-app",
+        "apps": []
+    },
+    "coreheaderpanel": {
+        "def": "http://localhost/Vipsion/public/bower_components/core-header-panel/core-header-panel.html",
+        "etype": "core-header-panel",
+        "mode": "waterfall",
+        "scene": true,
+        "container": "ayla",
+        "attribs": {
+            "mode": "waterfall",
+            "main": "true"
+        },
+        "styleprops": {
+            "flex": "auto"
+        }
+
+    },
+    "toolbar": {
+        "def": "http://localhost/Vipsion/public/bower_components/core-toolbar/core-toolbar.html",
+        "etype": "core-toolbar",
+        "classes": ["core-header", "justify-center"],
+        "scene": true,
+        "hidden": true,
+        "container": "coreheaderpanel",
+        "childcomponents": ["&lt;h1 id='title'&gt;Ayla&lt;/h1&gt;", "&lt;core-icon icon='ayla'&gt;&lt;/core-icon&gt"],
+        "reactprop":
+                [
+                    {
+                        "hidden": "!aylabutton_active"
+                    }],
+        "anima": [{
+                "name": "anima_toolbar_message",
+                "auto": true,
+                "animations": [{
+                        "element": "toolbar0",
+                        "keyframes": [{
+                                "opacity": "0.98",
+                                "color": "#FF6F00",
+                                "transform": "scale(0.98)"
+                            }, {
+                                "opacity": "1.0",
+                                "color": "#BF360C",
+                                "transform": "scale(1)"
+                            }],
+                        "timing": {
+                            "direction": "alternate",
+                            "duration": 2000,
+                            "iterations": 1000000
+                        }
+                    }]
+
+            }],
+        "styleprops": {
+        }
+    },
+    "messages": {
+        "def": "http://localhost/Vipsion/public/bower_components/voice-elements/dist/voice-player.html",
+        "etype": "voice-player",
+        "autoplay": true,
+        "text": "Pulsa el botón y entra en Ayla",
+        "container": "ayla",
+        "accent": "es-ES"
+    },
+    "apppages": {
+        "def": "http://localhost/Vipsion/public/bower_components/core-pages/core-pages.html",
+        "etype": "core-pages",
+        "hidden": true,
+        "scene": true,
+        "container": "coreheaderpanel",
+        "childcomponents": [],
+        "styleprops": {
+            "flex": "auto"
+        },
+        "valueattr": "appName",
+        "excludedLocalNames": "vip-reactive vip-react vip-app",
+        "reactprop":
+                [
+                    {
+                        "hidden": "!aylabutton_active"
+                    }],
+        "react":
+                [{
+                        "document_visibleapps":
+                                [{
+                                        "setProperty":
+                                                {
+                                                    "selected": "document_visibleapps_apps"
+                                                }
+                                    }]
+                    },
+                    {
+                        "document_appready":
+                                [{
+                                        "setProperty":
+                                                {
+                                                    "selected": "document_appready_app"
+                                                }
+                                    }]
+                    }]
+
+    },
+    "layoutinitialexplanation": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-layout/vip-layout.html",
+        "etype": "vip-layout",
+        "container": "apppages",
+        "name": "layout",
+        "appName": "explanation",
+        "scene": true,
+        "layout": {
+            "id": "ayla",
+            "horizontal": true,
+            "styles":
+                    {
+                        "background-color": "#FFECB3"
+                    },
+            "children": [
+                {
+                    "id": "features",
+                    "styles": {
+                        "flex": "8 1 0px"
+                    },
+                    "vertical": true,
+                    "children": [{
+                            "id": "section1",
+                            "horizontal": true,
+                            "children": [{
+                                    "id": "section1text",
+                                    "styles": {
+                                        "flex": "4 1 0px"
+                                    }
+                                },
+                                {
+                                    "id": "section1anim"
+                                }]
+                        },
+                        {
+                            "id": "section2",
+                            "horizontal": true,
+                            "children": [{
+                                    "id": "section2text",
+                                    "styles": {
+                                        "flex": "4 1 0px"
+                                    }
+                                },
+                                {
+                                    "id": "section2anim"
+                                }]
+                        },
+                        {
+                            "id": "section3",
+                            "horizontal": true,
+                            "children": [{
+                                    "id": "section3text",
+                                    "styles": {
+                                        "flex": "4 1 0px"
+                                    }
+                                },
+                                {
+                                    "id": "section3anim",
+                                    "horizontal": true,
+                                    "children": [{
+                                            "id": "section3anim1"
+                                        },
+                                        {
+                                            "id": "section3anim2"
+                                        }]
+                                }]
+                        },
+                        {
+                            "id": "section4",
+                            "horizontal": true,
+                            "children": [{
+                                    "id": "section4text",
+                                    "styles": {
+                                        "flex": "4 1 0px"
+                                    }
+                                },
+                                {
+                                    "id": "section4anim"
+                                }]
+                        }]
+                },
+                {
+                    "id": "controls",
+                    "center": true,
+                    "vertical": true,
+                    "hidden": true
+
+                }]
+        },
+        "react":
+                [{
+                        "audioexplanation_showcontrols":
+                                [{
+                                        "changeLayout": {
+                                                "section": "'controls'",
+                                                "hidden": false
+                                            }
+                                    }]
+                    }]
+    },
+    "webcomponents": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "container": "layoutinitialexplanation",
+        "section": "section1text",
+        "styleprops": {
+        },
+        "svg": {
+            "texts": [{
+                    "id": "message1",
+                    "x": "5%",
+                    "y": "50%",
+                    "opacity": 0,
+                    "font_size": "25px",
+                    "text": "Aplicación basada en componentes web"
+                }]
+        },
+        "anima": [{
+                "name": "animamessage1",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "message1",
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 2000,
+                            "duration": 500,
+                            "fill": "forwards"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "flex": "none"
+
+        }
+    },
+    "reactivity": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "container": "layoutinitialexplanation",
+        "section": "section2text",
+        "styleprops": {
+        },
+        "svg": {
+            "texts": [{
+                    "id": "message2",
+                    "x": "5%",
+                    "y": "50%",
+                    "opacity": 0,
+                    "font_size": "25px",
+                    "text": "Elementos reactivos"
+                }]
+        },
+        "anima": [{
+                "name": "animamessage2",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "message2",
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 2000,
+                            "duration": 500,
+                            "fill": "forwards"
+                        }
+                    }]
+            }]
+    },
+    "expressjson": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "container": "layoutinitialexplanation",
+        "section": "section3text",
+        "styleprops": {
+        },
+        "svg": {
+            "texts": [{
+                    "id": "message3",
+                    "x": "5%",
+                    "y": "50%",
+                    "opacity": 0,
+                    "font_size": "25px",
+                    "text": "Expresado en Json"
+                }]
+        },
+        "anima": [{
+                "name": "animamessage3",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "message3",
+                        "keyframes": [{
+                                "opacity": "0.0"
+                            }, {
+                                "opacity": "1.0"
+                            }],
+                        "timing": {
+                            "delay": 2000,
+                            "duration": 500,
+                            "fill": "forwards"
+                        }
+                    }]
+            }],
+        "styleprops": {
+            "flex": "none"
+
+        }
+    },
+    "webcomponentsanim": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "relative": true,
+        "container": "layoutinitialexplanation",
+        "section": "section1anim",
+        "styleprops": {
+        },
+        "svg": {
+            "paths":
+                    [{
+                            "id": "figure1",
+                            "fill": "red",
+                            "stroke": "red",
+                            "opacity": 0,
+                            "stroke_width": "2px",
+                            "points": [{
+                                    "x": 5,
+                                    "y": 5
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 5
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 30
+                                },
+                                {
+                                    "x": 40,
+                                    "y": 30
+                                },
+                                {
+                                    "x": 40,
+                                    "y": 50
+                                },
+                                {
+                                    "x": 5,
+                                    "y": 50
+                                },
+                                {
+                                    "x": 5,
+                                    "y": 5
+                                }]
+                        },
+                        {
+                            "id": "figure2",
+                            "fill": "blue",
+                            "stroke": "blue",
+                            "opacity": 0,
+                            "stroke_width": "2px",
+                            "points": [{
+                                    "x": 70,
+                                    "y": 5
+                                },
+                                {
+                                    "x": 95,
+                                    "y": 5
+                                },
+                                {
+                                    "x": 95,
+                                    "y": 95
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 95
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 80
+                                },
+                                {
+                                    "x": 40,
+                                    "y": 80
+                                },
+                                {
+                                    "x": 40,
+                                    "y": 30
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 30
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 5
+                                }]
+                        },
+                        {
+                            "id": "figure3",
+                            "fill": "green",
+                            "stroke": "green",
+                            "opacity": 0,
+                            "stroke_width": "2px",
+                            "points": [{
+                                    "x": 5,
+                                    "y": 50
+                                },
+                                {
+                                    "x": 5,
+                                    "y": 95
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 95
+                                },
+                                {
+                                    "x": 70,
+                                    "y": 80
+                                },
+                                {
+                                    "x": 40,
+                                    "y": 80
+                                },
+                                {
+                                    "x": 40,
+                                    "y": 50
+                                },
+                                {
+                                    "x": 5,
+                                    "y": 50
+                                }]
+                        }
+                    ]
+        },
+        "anima": [{
+                "name": "animafigure1",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "figure1",
+                        "keyframes": [{
+                                "opacity": "0.0",
+                                "transform": "translate(0px, -50px)"
+                            }, {
+                                "opacity": "1.0",
+                                "transform": "translate(0px, 0px)"
+                            }],
+                        "timing": {
+                            "delay": 10000,
+                            "duration": 1000,
+                            "fill": "forwards"
+
+                        }
+                    },
+                    {
+                        "element": "figure2",
+                        "keyframes": [{
+                                "opacity": "0.0",
+                                "transform": "translate(50px, 0px)"
+                            }, {
+                                "opacity": "1.0",
+                                "transform": "translate(0px, 0px)"
+                            }],
+                        "timing": {
+                            "delay": 10000,
+                            "duration": 1000,
+                            "fill": "forwards"
+
+                        }
+                    },
+                    {
+                        "element": "figure3",
+                        "keyframes": [{
+                                "opacity": "0.0",
+                                "transform": "translate(0px, 50px)"
+                            }, {
+                                "opacity": "1.0",
+                                "transform": "translate(0px, 0px)"
+                            }],
+                        "timing": {
+                            "delay": 10000,
+                            "duration": 1000,
+                            "fill": "forwards"
+
+                        }
+
+                    }]
+            }]
+    },
+    "reactivityanim": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-svg/vip-svg.html",
+        "etype": "vip-svg",
+        "scene": true,
+        "relative": true,
+        "container": "layoutinitialexplanation",
+        "section": "section2anim",
+        "styleprops": {
+        },
+        "svg": {
+            "lines":
+                    [{
+                            "id": "line1",
+                            "stroke": "black",
+                            "opacity": 1,
+                            "stroke_width": "5px",
+                            "x1": 50,
+                            "y1": 20,
+                            "x2": 50,
+                            "y2": 70
+                        },
+                        {
+                            "id": "line2",
+                            "stroke": "black",
+                            "opacity": 1,
+                            "stroke_width": "5px",
+                            "x1": 50,
+                            "y1": 20,
+                            "x2": 50,
+                            "y2": 70
+                        }],
+            "circles":
+                    [{
+                            "id": "circle1",
+                            "fill": "red",
+                            "stroke": "black",
+                            "opacity": 1,
+                            "stroke_width": "3px",
+                            "r": 8,
+                            "cx": 50,
+                            "cy": 20
+                        },
+                        {
+                            "id": "circle2",
+                            "fill": "red",
+                            "stroke": "red",
+                            "opacity": 1,
+                            "stroke_width": "2px",
+                            "r": 8,
+                            "cx": 50,
+                            "cy": 70
+                        }]
+        },
+        "anima": [{
+                "name": "animafigure1",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "line2",
+                        "keyframes": [{
+                                "stroke": "black"
+                            }, {
+                                "stroke": "red"
+                            }
+                        ],
+                        "timing": {
+                            "delay": 5000,
+                            "duration": 1000,
+                            "iterations": 20,
+                            "direction": "alternate"
+
+                        }
+                    }]
+            }]
+    },
+    "curlyleft": {
+        "def": "http://localhost/Vipsion/public/bower_components/core-icon/core-icon.html",
+        "etype": "core-icon",
+        "icon": "curly-left",
+        "scene": true,
+        "container": "layoutinitialexplanation",
+        "section": "section3anim1",
+        "anima": [{
+                "name": "animacurlyleft",
+                "synched": "audioexplanation",
+                "animations": [
+                    {
+                        "element": "svg",
+                        "keyframes": [{
+                                "opacity": 0.0,
+                                "transform": "translate(0px, 0px)"
+                            }, {
+                                "opacity": 1.0,
+                                "transform": "translate(70px, 0px)"
+                            }],
+                        "timing": {
+                            "delay": 5000,
+                            "duration": 1000,
+                            "fill": "forwards"
+
+                        }
+                    }]
+            }]
+    },
+    "curlyright":
+            {
+                "def": "http://localhost/Vipsion/public/bower_components/core-icon/core-icon.html",
+                "etype": "core-icon",
+                "icon": "curly-right",
+                "scene": true,
+                "container": "layoutinitialexplanation",
+                "section": "section3anim2",
+                "anima": [{
+                        "name": "animacurlyright",
+                        "synched": "audioexplanation",
+                        "animations": [
+                            {
+                                "element": "svg",
+                                "keyframes": [{
+                                        "opacity": 0.0,
+                                        "transform": "translate(0px, 0px)"
+                                    }, {
+                                        "opacity": 1.0,
+                                        "transform": "translate(-70px, 0px)"
+                                    }],
+                                "timing": {
+                                    "delay": 5000,
+                                    "duration": 1000,
+                                    "fill": "forwards"
+
+                                }
+                            }]
+                    }]
+            },
+    "aylabutton": {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-fab/paper-fab.html",
+        "etype": "paper-fab",
+        "icon": "ayla",
+        "scene": true,
+        "container": "coreheaderpanel",
+        "toggle": true,
+        "disabled": true,
+        "styleprops": {
+            "margin": "auto",
+            "height": "200px",
+            "width": "200px"
+        },
+        "reactprop":
+                [
+                    {
+                        "hidden": "aylabutton_active"
+                    }
+                ],
+        "react":
+                [{
+                        "messages_end":
+                                [{
+                                        "setProperty": {
+                                            "disabled": false
+                                        }
+                                    }]
+                    }]
+
+    },
+    "audioexplanation": {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-audio-html5/vip-audio-html5.html",
+        "etype": "vip-audio-html5",
+        "sources":
+                [
+                    {
+                        "src": "http://localhost/Vipsion/public/ayla/media/ayla.mp3",
+                        "type": "audio/mp3"
+                    }],
+        "react":
+                [
+                    {
+                        "aylabutton_reactactive && aylabutton_active":
+                                [{
+                                        "play": {
+                                        }
+                                    }]
+                    },
+                    {
+                        "toggleplay_reactpressed && toggleplay_pressed":
+                                [{
+                                        "togglePlay": {
+                                        }
+                                    }]
+                    }
+                ],
+        "notify":
+                [{
+                        "synched": "audioexplanation",
+                        "notifications":
+                                [{
+                                        "time": 5000,
+                                        "notification": "showcontrols"
+                                    }]
+
+                    }],
+        "reactprop":
+                [
+                    {
+                        "currentTime": "timeline_setTime"
+                    }]
+
+    },
+    "toggleplay":
+            {
+                "def": "http://localhost/Vipsion/public/bower_components/paper-fab/paper-fab.html",
+                "etype": "paper-fab",
+                "icon": "av:play-arrow",
+                "scene": true,
+                "container": "layoutinitialexplanation",
+                "section": "controls",
+                "synched": "audioexplanation",
+                "react":
+                        [{
+                                "synched$_reacttimeToPlay && synched$_timeToPlay":
+                                        [{
+                                                "setProperty": {
+                                                    "icon": "'av:pause'"
+
+                                                }
+                                            }]
+                            },
+                            {
+                                "synched$_reacttimeToPlay && synched$_timeToPlay == false":
+                                        [{
+                                                "setProperty": {
+                                                    "icon": "'av:play-arrow'"
+
+                                                }
+                                            }]
+                            }
+                        ]
+
+            },
+    "timeline":
+            {
+                "def": "http://localhost/Vipsion/public/bower_components/vip-video-timeline/vip-video-timeline.html",
+                "etype": "vip-video-timeline",
+                "synched": "audioexplanation",
+                "scene": true,
+                "container": "layoutinitialexplanation",
+                "section": "controls",
+                "reactprop":
+                        [{
+                                "duration": "synched$_duration"
+                            },
+                            {
+                                "currentTime": "synched$_setTime"
+                            },
+                            {
+                                "timeToPlay": "synched$_playback"
+                            }]
+
+            }
+}

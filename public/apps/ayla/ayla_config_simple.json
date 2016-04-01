@@ -1,0 +1,211 @@
+[
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-header-panel/paper-header-panel.html",
+        "etype": "paper-header-panel",
+        "id": "coreheaderpanel",
+        "mode": "waterfall",
+        "classes": ["layout", "vertical"],
+        "customStyles": {
+            "--paper-header-panel-waterfall-container": "display: flex; flex: 1 1 0px;"
+        }
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-layout/vip-layout.html",
+        "etype": "vip-layout",
+        "id": "lay",
+        "layout":
+                [
+                    {
+                        "id": "aylalay",
+                        "name": "aylalay",
+                        "container": "apppages",
+                        "styleProps": [{
+                                "selector": "#aylalay",
+                                "flex-flow": "row",
+                                "color": "green"
+                            }],
+                        "children":
+                                [
+                                    {
+                                        "id": "main2",
+                                        "name": "main2",
+                                        "container": "aylalay",
+                                        "styleProps": [{
+                                                "selector": "#main2",
+                                                "flex-flow": "column",
+                                                "color": "blue",
+                                                "order": 50
+                                            }],
+                                        "children": []
+                                    }, {
+                                        "id": "main3",
+                                        "name": "main3",
+                                        "container": "aylalay",
+                                        "styleProps": [{
+                                                "selector": "#main3",
+                                                "flex-flow": "row",
+                                                "color": "red",
+                                                "flex": "3 0 0px"
+                                            }],
+                                        "children": []
+                                    },
+                                    {
+                                        "id": "main4",
+                                        "name": "main4",
+                                        "container": "aylalay",
+                                        "styleProps": [{
+                                                "selector": "#main4",
+                                                "order": 30,
+                                                "flex-flow": "column",
+                                                "flex": "none",
+                                                "justify-content": "center",
+                                                "align-items": "center",
+                                                "color": "brown"
+                                            }],
+                                        "children": []
+                                    }
+                                ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "top2",
+                        "container": "apppages",
+                        "children": [
+                            {
+                                "id": 4,
+                                "name": "mid2",
+                                "container": "top2",
+                                "children": []
+                            }
+                        ]
+                    }]
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-toolbar/paper-toolbar.html",
+        "etype": "paper-toolbar",
+        "id": "ptoolbar",
+        "container": "coreheaderpanel",
+        "classes": ["core-header"],
+        "childComponents": ["<h1 id=\"title\">Ayla<\/h1>"],
+        "anima": {
+            "titlecolor":
+                    {
+                        "element": "title",
+                        "custom": true,
+                        "name": "change-color-animation",
+                        "keyframes": [{
+                                "opacity": "0.1",
+                                "color": "#FF6F00",
+                                "transform": "scale(0.9)"
+                            }, {
+                                "opacity": "1.0",
+                                "color": "#BF360C",
+                                "transform": "scale(1)"
+                            }],
+                        "timing": {
+                            "direction": "alternate",
+                            "duration": 2000,
+                            "iterations": 10
+                        },
+                        "rules": [
+                            {
+                                "when": "videosintel.paused",
+                                "do": "(transducers.filter (x => !x))",
+                                "then": "{this.play()}"
+                            },
+                            {
+                                "when": "timedigital.onevent_showcontrols",
+                                "then": "{this.pause()}"
+                            },
+                            {
+                                "when": "videosintel.paused",
+                                "do": "(transducers.filter (x => x))",
+                                "then": "{this.pause()}"
+                            }]
+                    }
+        }
+  },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/iron-pages/iron-pages.html",
+        "etype": "iron-pages",
+        "attrForSelected": "appname",
+        "id": "apppages",
+        "classes": ["layout", "horizontal", "flex"],
+        "selected": "aylalay",
+        "container": "coreheaderpanel"
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-video-html5/vip-video-html5.html",
+        "etype": "vip-video-html5",
+        "id": "butterfly",
+        "container": "main3",
+        "seekTimeSource": "timeline",
+        "controlOnOff": "toggleplay",
+        "videoId": "butterflyVideo",
+        "sources": [
+            {
+                "src": "http://localhost/Vipsion/public/ayla/media/mov_bbb.mp4",
+                "type": "video/mp4"
+            }]
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-timeline/vip-timeline.html",
+        "etype": "vip-timeline",
+        "id": "timeline",
+        "peer": "butterfly",
+        "onOffSource": "butterfly",
+        "seekTimeSource": "butterfly",
+        "container": "main4",
+        "classes": ["flex-4", "order-2"]
+    },
+     {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-fab/paper-fab.html",
+        "etype": "paper-fab",
+        "id": "toggleplay",
+        "icon": "av:play-arrow",
+        "container": "main4",
+        "toggles": true,
+        "extraProperties": {
+            "peer": "butterfly"
+        },
+        "classes": ["flex-none", "order-3"],
+        "rules":
+                [
+                    {
+                        "when": "peer$.paused",
+                        "do": "transducers.map (x => x ? 'av:play-arrow' : 'av:pause')",
+                        "then": "icon"
+                    }
+                ]
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-time-digital/vip-time-digital.html",
+        "etype": "vip-time-digital",
+        "id": "timedigital",
+        "peer": "butterfly",
+        "container": "main4",
+        "classes": ["flex-none", "order-1"]
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-login/vip-login.html",
+        "etype": "vip-login",
+        "id": "logging",
+        "scene": true,
+        "container": "ptoolbar",
+        "classes": ["huge"],
+        "title": "Login"
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/google-signin/google-signin.html",
+        "etype": "google-signin",
+        "id": "signin",
+        "brand": "google",
+        "width": "wide",
+        "labelSignin": "Entra en Ayla",
+        "labelSignout": "Salir",
+        "scopes": "profile",
+        "container": "ptoolbar",
+        "clientId": "308612886182-s33e07uhrlt8g32oeshf1o1h9663c1fs.apps.googleusercontent.com"
+    }
+
+]

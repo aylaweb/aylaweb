@@ -1,0 +1,325 @@
+[
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-header-panel/paper-header-panel.html",
+        "etype": "paper-header-panel",
+        "id": "coreheaderpanel",
+        "mode": "waterfall",
+        "classes": ["layout", "vertical"],
+        "customStyles": {
+            "--paper-header-panel-waterfall-container": "display: flex; flex: 1 1 0px;"
+        }
+    },
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-layout/vip-layout.html",
+        "etype": "vip-layout",
+        "id": "lay",
+        "layout":
+                [
+                    {
+                        "id": "aylalay",
+                        "name": "aylalay",
+                        "container": "apppages",
+                        "styleProps": [{
+                                "selector": "#aylalay",
+                                "flex-flow": "row",
+                                "color": "green"
+                            }],
+                        "children":
+                                [
+                                    {
+                                        "id": "main2",
+                                        "name": "main2",
+                                        "container": "aylalay",
+                                        "styleProps": [{
+                                                "selector": "#main2",
+                                                "flex-flow": "column",
+                                                "color": "blue",
+                                                "order": 50                                           
+                                            }],
+                                        "children": []
+                                    }, {
+                                        "id": "main3",
+                                        "name": "main3",
+                                        "container": "aylalay",
+                                        "styleProps": [{
+                                                "selector": "#main3",
+                                                "flex-flow": "row",
+                                                "color": "red",
+                                                "flex": "3 0 0px"
+                                                
+                                            }],
+                                        "children": []
+                                    },
+                                    {
+                                        "id": "main4",
+                                        "name": "main4",
+                                        "container": "aylalay",
+                                        "styleProps": [{
+                                                "selector": "#main4",
+                                                "order": 30,
+                                                "flex-flow": "column",
+                                                "flex": "none",
+                                                "justify-content": "center",
+                                                "align-items": "center",
+                                                "color": "brown"
+                                            }],
+                                        "children": []
+                                    }
+                                ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "top2",
+                        "container": "apppages",
+                        "children": [
+                            {
+                                "id": 4,
+                                "name": "mid2",
+                                "container": "top2",
+                                "children": []
+                            }
+                        ]
+                    }]
+    },
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-toolbar/paper-toolbar.html",
+        "etype": "paper-toolbar",
+        "id": "ptoolbar",
+        "container": "coreheaderpanel",
+        "classes": ["core-header"],
+        "childComponents": ["<h1 id=\"title\">Ayla<\/h1>"],
+        "anima": {
+            "titlecolor":
+                    {
+                        "element": "title",
+                        "custom": true,
+                        "name": "change-color-animation",
+                        "keyframes": [{
+                                "opacity": "0.1",
+                                "color": "#FF6F00",
+                                "transform": "scale(0.9)"
+                            }, {
+                                "opacity": "1.0",
+                                "color": "#BF360C",
+                                "transform": "scale(1)"
+                            }],
+                        "timing": {
+                            "direction": "alternate",
+                            "duration": 2000,
+                            "iterations": 10
+                        },
+                        "rules": [
+                            {
+                                "when": "appSelector.paused",
+                                "do": "(transducers.filter (x => !x))",
+                                "then": "{this.play()}"
+                            },
+                            {
+                                "when": "timedigital.onevent_showcontrols",
+                                "then": "{this.pause()}"
+                            },
+                            {
+                                "when": "appSelector.paused",
+                                "do": "(transducers.filter (x => x))",
+                                "then": "{this.pause()}"
+                            }]
+                    }
+        }
+
+    },
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-message-panel/vip-message-panel.html",
+        "etype": "vip-message-panel",
+        "id": "messagepanel",
+        "container": "main3",
+        "dataSourceJson": [{
+                "collection": "Messages",
+                "data": [{
+                        "message": "Hola",
+                        "tentry": 1,
+                        "texit": 2,
+                        "is_visible": false
+                    },
+                    {
+                        "message": "Adios",
+                        "tentry": 1,
+                        "texit": 5,
+                        "is_visible": true
+                    },
+                    {
+                        "message": "Hola",
+                        "tentry": 1,
+                        "texit": 3,
+                        "is_visible": true
+                    }]
+
+            }],
+        "injections": [{
+                "prop": "dataMessages",
+                "synchProp": "synchedMessages",
+                "collection": "Messages",
+                "synch": "butterfly",
+                "selector": "this.is_visible == true"
+            }],
+        "rules": [{
+                "when": "messagepanel.synchedMessages",
+                "then": "messages"
+            }]
+    },
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/iron-pages/iron-pages.html",
+        "etype": "iron-pages",
+        "attrForSelected": "appname",
+        "id": "apppages",
+        "classes": ["layout", "horizontal", "flex"],
+        "selected": "aylalay",
+        "container": "coreheaderpanel"
+    },
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-time-slider/vip-time-slider.html",
+        "etype": "vip-time-slider",
+        "id": "timeline",
+        "peer": "appSelector",
+        "container": "main4",
+        "classes": ["flex-4", "order-2"],
+        "rules":
+                [
+                    {
+                        "when": "appSelector.selected",
+                        "then": "peer"
+                    }
+                ]
+    },
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-app-selector/vip-app-selector.html",
+        "etype": "vip-app-selector",
+        "id": "appSelector",
+        "attrForSelected": "id",
+        "selected": "butterfly",
+        "seekTimeSource": "timeline",
+        "controlOnOff": "toggleplay",
+        "container": "main3",
+        "classes": ["flex-4"],
+        "dataSourceAjax": [{
+                "data": {
+                    "appId": "appSelector"
+                },
+                "localCollection": "ElemRep",
+                "url": "http://www.vipsion.com:3000/apps/ayla/ayla_media_ser.json"
+            }],
+        "injections": [{
+                "collection": "ElemRep",
+                "selector": "this.appId == 'appSelector'",
+                "prop": "appElems"
+            }],
+        "rules": [
+            {
+                "when": "appSelector.oninjection_play",
+                "then": "{this.play()}"
+            },
+            {
+                "when": "selectnext.pressed",
+                "do": "transducers.filter(x => x)",
+                "then": "{this.selectNext()}"
+            },
+            {
+                "when": "controlOnOff$.pressed",
+                "do": "transducers.filter(x => x)",
+                "then": "{this.togglePlay()}"
+            }
+        ]
+    },
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-fab/paper-fab.html",
+        "etype": "paper-fab",
+        "id": "selectnext",
+        "icon": "av:play-arrow",
+        "container": "main4",
+        "classes": ["flex-none", "order-5"]
+    },
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-time-digital/vip-time-digital.html",
+        "etype": "vip-time-digital",
+        "id": "timedigital",
+        "peer": "appSelector",
+        "container": "main4",
+        "classes": ["flex-none", "order-1"],
+        "anima":
+                {
+                    "at3": {
+                        "name": "at-animation",
+                        "synch": "butterfly",
+                        "at": 3,
+                        "then": "{this.fire('showcontrols', {value: timedigital.scene})}"
+                    }
+                },
+        "rules":
+                [
+                    {
+                        "when": "appSelector.selected",
+                        "then": "peer"
+                    }
+                ]
+    },
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/paper-fab/paper-fab.html",
+        "etype": "paper-fab",
+        "id": "toggleplay",
+        "icon": "av:play-arrow",
+        "container": "main4",
+        "toggles": true,
+        "extraProperties": {
+            "peer": "appSelector"
+        },
+        "classes": ["flex-none", "order-3"],
+        "rules":
+                [
+                    {
+                        "when": "peer$.paused",
+                        "do": "transducers.map (x => x ? 'av:play-arrow' : 'av:pause')",
+                        "then": "icon"
+                    }
+                ]
+    },
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/iron-image/iron-image.html",
+        "etype": "iron-image",
+        "id": "image",
+        "sizing": "contain",
+        "fade": true,
+        "classes": ["flex"],
+        "src": "http://lorempixel.com/600/400",
+        "container": "main2"
+    },
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-login/vip-login.html",
+        "etype": "vip-login",
+        "id": "logging",
+        "scene": true,
+        "container": "ptoolbar",
+        "classes": ["huge"],
+        "title": "Login"
+    },
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/google-signin/google-signin.html",
+        "etype": "google-signin",
+        "id": "signin",
+        "brand": "google",
+        "width": "wide",
+        "labelSignin": "Entra en Ayla",
+        "labelSignout": "Salir",
+        "scopes": "profile",
+        "container": "ptoolbar",
+        "clientId": "308612886182-s33e07uhrlt8g32oeshf1o1h9663c1fs.apps.googleusercontent.com"
+    },
+    {
+        "def": "http://www.vipsion.com:3000/bower_components/vip-video-youtube/vip-video-youtube.html",
+        "etype": "vip-video-youtube",
+        "id": "videosintel",
+        "store": ["currentTime", "autoplay"],
+        "container": "main2",
+        "vid": "rGKfrgqWcv0",
+        "videoId": "sintel"
+    }
+
+]
