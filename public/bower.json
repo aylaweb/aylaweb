@@ -19,14 +19,15 @@
         "gold-elements": "PolymerElements/gold-elements#~1",
         "platinum-elements": "PolymerElements/platinum-elements#~1",
         "google-web-components": "GoogleWebComponents/google-web-components#~1",
-        "vip-animation": "https://github.com/aylaweb/vip-animation.git",
         "vip-behaviors": "https://github.com/aylaweb/vip-behaviors.git",
         "vip-elements": "https://github.com/aylaweb/vip-elements.git",
         "lodash": "lodash/lodash#~4.6",
         "rxjs": "Reactive-Extensions/RxJS#~4.0",
         "transducers-js": "#~0.4",
         "d3": "#~3.5",
-        "esprima": "https://github.com/jquery/esprima.git#~2.7"
+        "esprima": "https://github.com/jquery/esprima.git#~2.7",
+        "escodegen": "https://github.com/aylaweb/escodegen.git#addbower",
+        "esquery": "https://github.com/aylaweb/esquery.git"
     },
     "ignore": [
         "**/.*",

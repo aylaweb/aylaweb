@@ -292,12 +292,6 @@
         "container": "main2"
     },
     {
-        "def": "http://localhost/Vipsion/public/bower_components/employee-list/employee-list.html",
-        "etype": "employee-list",
-        "id": "employee-list",
-        "container": "main3"
-    },
-    {
         "def": "http://localhost/Vipsion/public/bower_components/vip-video-html5/vip-video-html5.html",
         "etype": "vip-video-html5",
         "id": "videohtml5",
