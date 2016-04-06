@@ -1,5 +1,10 @@
 Meteor.startup(function ()
 {
+    _ = lodash;
+    Ayla = window.Ayla || {};
+    Ayla.ElemRep = new Mongo.Collection("elemrep");
+    Ayla.Messages = new Mongo.Collection("messages");
+    Ayla.Videos = new Mongo.Collection("videos");
     Meteor.subscribe('appElems', {});
     Meteor.subscribe('messages', {});
     window.addEventListener("loginwithpassword", function (e) {
@@ -31,8 +36,8 @@ Meteor.startup(function ()
         e.detail._id = e.detail.appId + "$" + e.detail.id;
         if (Meteor.userId())
         {
-           e.detail._id = e.detail._id + "$" + Meteor.userId();
-           e.detail.owner = Meteor.userId();
+            e.detail._id = e.detail._id + "$" + Meteor.userId();
+            e.detail.owner = Meteor.userId();
         }
         if (Ayla.ElemRep.find({_id: e.detail._id}).fetch().length === 0) {
             Ayla.ElemRep.insert(e.detail);

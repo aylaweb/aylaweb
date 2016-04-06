@@ -1,18 +1,18 @@
 [
    {
-        "def": "http://www.vipsion.com:3000/bower_components/vip-video-html5/vip-video-html5.html",
+        "def": "/bower_components/vip-video-html5/vip-video-html5.html",
         "etype": "vip-video-html5",
         "id": "butterfly",
         "videoId": "butterflyVideo",
       
         "sources": [
             {
-                "src": "http://www.vipsion.com:3000/apps/ayla/media/mov_bbb.mp4",
+                "src": "/apps/ayla/media/mov_bbb.mp4",
                 "type": "video/mp4"
             }]
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/vip-video-html5/vip-video-html5.html",
+        "def": "/bower_components/vip-video-html5/vip-video-html5.html",
         "etype": "vip-video-html5",
         "id": "sintelhtml5",
         "videoId": "sintelVideo",
@@ -23,7 +23,7 @@
 
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/vip-video-html5/vip-video-html5.html",
+        "def": "/bower_components/vip-video-html5/vip-video-html5.html",
         "etype": "vip-video-html5",
         "id": "educamadrid",      
         "videoId": "educamadridVideo",
@@ -33,6 +33,4 @@
             }]
 
     }
-
-
 ]

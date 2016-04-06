@@ -1,6 +1,6 @@
 [
     {
-        "def": "http://www.vipsion.com:3000/bower_components/paper-header-panel/paper-header-panel.html",
+        "def": "/bower_components/paper-header-panel/paper-header-panel.html",
         "etype": "paper-header-panel",
         "id": "coreheaderpanel",
         "mode": "waterfall",
@@ -10,7 +10,7 @@
         }
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/vip-layout/vip-layout.html",
+        "def": "/bower_components/vip-layout/vip-layout.html",
         "etype": "vip-layout",
         "id": "lay",
         "layout":
@@ -82,7 +82,7 @@
                     }]
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/paper-toolbar/paper-toolbar.html",
+        "def": "/bower_components/paper-toolbar/paper-toolbar.html",
         "etype": "paper-toolbar",
         "id": "ptoolbar",
         "container": "coreheaderpanel",
@@ -128,7 +128,7 @@
 
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/vip-message-panel/vip-message-panel.html",
+        "def": "/bower_components/vip-message-panel/vip-message-panel.html",
         "etype": "vip-message-panel",
         "id": "messagepanel",
         "container": "main3",
@@ -167,7 +167,7 @@
             }]
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/iron-pages/iron-pages.html",
+        "def": "/bower_components/iron-pages/iron-pages.html",
         "etype": "iron-pages",
         "attrForSelected": "appname",
         "id": "apppages",
@@ -176,7 +176,7 @@
         "container": "coreheaderpanel"
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/vip-time-slider/vip-time-slider.html",
+        "def": "/bower_components/vip-time-slider/vip-time-slider.html",
         "etype": "vip-time-slider",
         "id": "timeline",
         "peer": "appSelector",
@@ -191,7 +191,7 @@
                 ]
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/vip-app-selector/vip-app-selector.html",
+        "def": "/bower_components/vip-app-selector/vip-app-selector.html",
         "etype": "vip-app-selector",
         "id": "appSelector",
         "attrForSelected": "id",
@@ -205,7 +205,7 @@
                     "appId": "appSelector"
                 },
                 "localCollection": "ElemRep",
-                "url": "http://www.vipsion.com:3000/apps/ayla/ayla_media_ser.json"
+                "url": "/apps/ayla/ayla_media_ser.json"
             }],
         "injections": [{
                 "collection": "ElemRep",
@@ -230,7 +230,7 @@
         ]
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/paper-fab/paper-fab.html",
+        "def": "/bower_components/paper-fab/paper-fab.html",
         "etype": "paper-fab",
         "id": "selectnext",
         "icon": "av:play-arrow",
@@ -238,7 +238,7 @@
         "classes": ["flex-none", "order-5"]
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/vip-time-digital/vip-time-digital.html",
+        "def": "/bower_components/vip-time-digital/vip-time-digital.html",
         "etype": "vip-time-digital",
         "id": "timedigital",
         "peer": "appSelector",
@@ -262,7 +262,7 @@
                 ]
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/paper-fab/paper-fab.html",
+        "def": "/bower_components/paper-fab/paper-fab.html",
         "etype": "paper-fab",
         "id": "toggleplay",
         "icon": "av:play-arrow",
@@ -282,7 +282,7 @@
                 ]
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/iron-image/iron-image.html",
+        "def": "/bower_components/iron-image/iron-image.html",
         "etype": "iron-image",
         "id": "image",
         "sizing": "contain",
@@ -292,7 +292,7 @@
         "container": "main2"
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/vip-login/vip-login.html",
+        "def": "/bower_components/vip-login/vip-login.html",
         "etype": "vip-login",
         "id": "logging",
         "scene": true,
@@ -301,7 +301,7 @@
         "title": "Login"
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/google-signin/google-signin.html",
+        "def": "/bower_components/google-signin/google-signin.html",
         "etype": "google-signin",
         "id": "signin",
         "brand": "google",
@@ -313,7 +313,7 @@
         "clientId": "308612886182-s33e07uhrlt8g32oeshf1o1h9663c1fs.apps.googleusercontent.com"
     },
     {
-        "def": "http://www.vipsion.com:3000/bower_components/vip-video-youtube/vip-video-youtube.html",
+        "def": "/bower_components/vip-video-youtube/vip-video-youtube.html",
         "etype": "vip-video-youtube",
         "id": "videosintel",
         "store": ["currentTime", "autoplay"],
