@@ -1,0 +1,83 @@
+[
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-header-panel/paper-header-panel.html",
+        "etype": "paper-header-panel",
+        "id": "coreheaderpanel",
+        "mode": "waterfall",
+        "classes": ["layout", "vertical"],
+        "customStyles": {
+            "--paper-header-panel-waterfall-container": "display: flex; flex: 1 1 0px;"
+        }
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-layout/vip-layout.html",
+        "etype": "vip-layout",
+        "id": "vie_layout",
+        "layout":
+                [
+                    {
+                        "id": "vie_page",
+                        "name": "vie_page",
+                        "container": "apppages",
+                        "styleProps": [{
+                                "selector": "#vie_page",
+                                "flex-flow": "column",
+                                "color": "green"
+                            }]
+                    }]
+
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-toolbar/paper-toolbar.html",
+        "etype": "paper-toolbar",
+        "id": "ptoolbar",
+        "container": "coreheaderpanel",
+        "classes": ["core-header"],
+        "childComponents": ["<h1 id=\"title\">Ayla<\/h1>"]
+
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/iron-pages/iron-pages.html",
+        "etype": "iron-pages",
+        "attrForSelected": "appname",
+        "id": "apppages",
+        "classes": ["layout", "horizontal", "flex"],
+        "selected": "vie_page",
+        "container": "coreheaderpanel"
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-input/paper-input.html",
+        "etype": "paper-input",
+        "container": "vie_page",
+        "id": "url",
+        "label": "URL",
+        "classes": ["flex-none"],
+        "noLabelFloat": false,
+        "invalid": false,
+        "focused": true
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/paper-button/paper-button.html",
+        "etype": "paper-button",
+        "container": "vie_page",
+        "id": "button1",
+        "raised": true,
+        "classes": ["flex-none"],
+        "childComponents": ["<div>Ayla<\/div>"]
+    },
+    {
+        "def": "http://localhost/Vipsion/public/bower_components/vip-app/vip-app.html",
+        "etype": "vip-app",
+        "container": "vie_page",
+        "id": "loader",
+        "rules": [{
+                "when": "button1.pressed",
+                "then": "{this.push('dataSourceAjax', {url: url.value, localCollection: 'ElemRep', data:  {appId: 'ex1'}})}"
+            },
+            {
+                "when": "button1.pressed",
+                "then": "{this.push('injections', {collection: 'ElemRep', selector: 'this.appId == ex1', prop: 'appElems'})}"
+            }]
+    }
+
+]

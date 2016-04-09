@@ -24,6 +24,7 @@
     </vip-app>
     <script>
         window.addEventListener('HTMLImportsLoaded', function (e) {
+
             var ayla = document.querySelector('#ayla');
             ayla.dataSourceAjax = [{
                     data: {appId: "ayla"},
@@ -38,6 +39,78 @@
             ayla.injections = [{
                     collection: "ElemRep",
                     selector: "this.appId == 'ayla'",
+                    prop: "appElems"}];
+
+            /*    ayla.dataSourceJson = [{
+             collection: "Videos",
+             docs: [{
+             videoId: "butterfly",
+             type: "video/mp4",
+             sources: [
+             {
+             src: "http://localhost/Ayla/public/ayla/media/mov_bbb.mp4",
+             type: "video/mp4"
+             }],
+             startTime: 2,
+             endTime: 8
+             },
+             {
+             videoId: "joomla",
+             type: "video/mp4",
+             sources: [{
+             src: "http://localhost/Ayla/public/ayla/media/joomla.mp4",
+             type: "video/mp4"
+             }]
+             },
+             {
+             videoId: "sintel",
+             type: "video/mp4",
+             sources: [{
+             src: "http://media.w3.org/2010/05/sintel/trailer.mp4",
+             type: "video/mp4"
+             }]
+             },
+             {
+             videoId: "yoda",
+             type: "video/youtube",
+             vid: "mJzbqdMrekU",
+             },
+             {
+             videoId: "sintelyoutube",
+             type: "video/youtube",
+             vid: "LSHLg4hEVZ8",
+             }
+             ]
+             }]; */
+
+        });</script>
+</template>
+
+<template name='Vie'>
+    <script src="http://localhost/Vipsion/public/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="http://localhost/Vipsion/public/bower_components/polymer/polymer.html">
+    <link rel="import" href="http://localhost/Vipsion/public/bower_components/vip-app/vip-app.html">
+    <!-- <link rel="import" href="http://localhost/Vipsion/public/bower_components/vip-loader/vip-loader.html"> -->
+    <vip-app  theme = "http://localhost/Vipsion/public/apps/ayla/theme/aylatheme.html" id="vie">
+        <!--  <vip-loader></vip-loader> -->
+    </vip-app>
+    <script>
+        window.addEventListener('HTMLImportsLoaded', function (e) {
+
+
+            var vie = document.querySelector('#vie');
+            vie.dataSourceAjax = [{
+                    data: {appId: "vie"},
+                    localCollection: "ElemRep",
+                    url: "http://localhost/Vipsion/public/apps/vie/vie_config.json"
+                }];
+            /*   ayla.dataSourceMeteor = [{
+             selector: {appId: "myayla"},
+             publication: "appElements"
+             }]; */
+            vie.injections = [{
+                    collection: "ElemRep",
+                    selector: "this.appId == 'vie'",
                     prop: "appElems"}];
 
             /*    ayla.dataSourceJson = [{

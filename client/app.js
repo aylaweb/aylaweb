@@ -153,8 +153,8 @@ Meteor.startup(function ()
     Router.route('/server', function () {
         this.render('Server');
     });
-    Router.route('/main', function () {
-        this.render('Main');
+    Router.route('/vie', function () {
+        this.render('Vie');
     });
 
 });

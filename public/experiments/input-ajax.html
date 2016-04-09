@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+        <link rel="import" href="../bower_components/polymer/polymer.html">
+        <link rel="import" href="../bower_components/vip-app/vip-app.html">
+        <link rel="import" href="../bower_components/paper-input/paper-input.html">
+        <link rel="import" href="../bower_components/paper-button/paper-button.html">
+    </head>
+    <body>
+
+    <paper-input id="url" label="URL" no-label-float></paper-input>
+    <paper-button id="button" raised disabled>Go</paper-button>
+    <vip-app  theme = "http://localhost/Vipsion/public/apps/ayla/theme/aylatheme.html" id="ayla">
+    </vip-app>
+
+    <script>
+        window.addEventListener('HTMLImportsLoaded', function (e) {
+            var ayla = document.querySelector('#ayla');
+            ayla.injections = [{
+                    collection: "ElemRep",
+                    selector: "this.appId == 'ayla'",
+                    prop: "appElems"}];
+
+            ayla.rules = [{
+                    when: "url.onevent_change_value",
+                    then: "url"}];
+
+            var button = document.querySelector('#button');
+            ayla.rules = [{
+                    when: "url.onevent_change_value",
+                    then: "url"}];
+        });</script>
+</body>
+</html>
